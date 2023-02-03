@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Default">
+      <UniqueIdentifier>{6b80eed1-a7d5-4e13-b4de-6268b5bbeb91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{96964434-47b2-40f3-b6c5-41f021801a48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\00.Header">
+      <UniqueIdentifier>{2cfed074-0f4e-420e-b5de-a71087785753}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\01.Engine">
+      <UniqueIdentifier>{23106af0-b042-48c9-88f5-583f1e34995b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="CSingleton.h" />
+    <ClInclude Include="CEngine.h">
+      <Filter>Source\01.Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="global.h">
+      <Filter>Source\00.Header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Default</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Default</Filter>
+    </ClCompile>
+    <ClCompile Include="CEngine.cpp">
+      <Filter>Source\01.Engine</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
