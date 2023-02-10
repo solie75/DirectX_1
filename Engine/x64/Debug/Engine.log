@@ -1,5 +1,16 @@
-﻿  .\Engine\CSingleton.h
-  1개 파일이 복사되었습니다.
-  pch.cpp
-  Engine.cpp
-  Engine.vcxproj -> D:\git\DirectX_1\External\Library\Engine\Engine_d.lib
+﻿  .\Engine\CDevice.h
+  .\Engine\CEngine.h
+  .\Engine\CKeyMgr.h
+  .\Engine\CPathMgr.h
+  .\Engine\CSingleton.h
+  .\Engine\CTest.h
+  .\Engine\CTimeMgr.h
+  .\Engine\define.h
+  .\Engine\global.h
+  .\Engine\struct.h
+  10개 파일이 복사되었습니다.
+  0개 파일이 복사되었습니다.
+  파일을 찾을 수 없습니다-.fx
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(147,5): error MSB3073: "cd D:\신중은\DirectX_1\
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(147,5): error MSB3073: call EngineCopy.bat
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(147,5): error MSB3073: :VCEnd" 명령이 종료되었습니다(코드: 4).

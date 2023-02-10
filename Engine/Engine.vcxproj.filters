@@ -13,6 +13,27 @@
     <Filter Include="Source\01.Engine">
       <UniqueIdentifier>{23106af0-b042-48c9-88f5-583f1e34995b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\02.Device">
+      <UniqueIdentifier>{c8194665-850f-4bb9-a388-ff14e9b8dcad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\03.Manager">
+      <UniqueIdentifier>{85dcc10e-6f15-419f-b4f4-5058e7bebcf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\03.Manager\01.PathMgr">
+      <UniqueIdentifier>{a5c894cd-c09c-4c32-a9b3-9bee6b5782b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\03.Manager\02.TimeMgr">
+      <UniqueIdentifier>{983e3456-6442-477b-ab2c-c24b22704dfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\03.Manager\03.KeyMgr">
+      <UniqueIdentifier>{ee822815-83a1-464c-b1e1-717b01ee21ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\08.Module">
+      <UniqueIdentifier>{16f351cc-c8da-4ce7-9b30-12684ef10b7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\07.ShaderCode">
+      <UniqueIdentifier>{7bfe41ae-c4c4-475d-a46b-13ee71916cf9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -28,6 +49,25 @@
     <ClInclude Include="global.h">
       <Filter>Source\00.Header</Filter>
     </ClInclude>
+    <ClInclude Include="CDevice.h">
+      <Filter>Source\02.Device</Filter>
+    </ClInclude>
+    <ClInclude Include="CPathMgr.h">
+      <Filter>Source\03.Manager\01.PathMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CTimeMgr.h">
+      <Filter>Source\03.Manager\02.TimeMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CKeyMgr.h">
+      <Filter>Source\03.Manager\03.KeyMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CTest.h" />
+    <ClInclude Include="struct.h">
+      <Filter>Source\00.Header</Filter>
+    </ClInclude>
+    <ClInclude Include="define.h">
+      <Filter>Source\00.Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -39,5 +79,23 @@
     <ClCompile Include="CEngine.cpp">
       <Filter>Source\01.Engine</Filter>
     </ClCompile>
+    <ClCompile Include="CDevice.cpp">
+      <Filter>Source\02.Device</Filter>
+    </ClCompile>
+    <ClCompile Include="CPathMgr.cpp">
+      <Filter>Source\03.Manager\01.PathMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CTimeMgr.cpp">
+      <Filter>Source\03.Manager\02.TimeMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CKeyMgr.cpp">
+      <Filter>Source\03.Manager\03.KeyMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="test.fx">
+      <Filter>Source\07.ShaderCode</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

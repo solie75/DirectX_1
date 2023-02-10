@@ -4,6 +4,17 @@
 #include "framework.h"
 #include "Client.h"
 
+// Engine Library
+#include <Engine\global.h>
+#include <Engine\CEngine.h>
+
+// Engine Library
+#ifdef _DEBUG
+#pragma comment(lib, "Engine//Engine_d.lib")
+#else
+#pragma comment(lib, "Engine//Engine.lib")
+#endif
+
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
@@ -37,6 +48,11 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     if (!InitInstance (hInstance, nCmdShow))
     {
         return FALSE;
+    }
+
+    if (FAILED(CEngine::GetInst()->EngineInit(g_hWnd, 1600, 900)))
+    {
+        return 0;
     }
 
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_CLIENT));
