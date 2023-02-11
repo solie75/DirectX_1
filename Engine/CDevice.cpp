@@ -133,6 +133,8 @@ int CDevice::CreateView()
 	{
 		return E_FAIL;
 	}
+
+	return S_OK;
 }
 
 void CDevice::ClearTarget(float(&_color)[4])

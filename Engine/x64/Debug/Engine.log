@@ -9,8 +9,19 @@
   .\Engine\global.h
   .\Engine\struct.h
   10개 파일이 복사되었습니다.
-  0개 파일이 복사되었습니다.
-  파일을 찾을 수 없습니다-.fx
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(147,5): error MSB3073: "cd D:\신중은\DirectX_1\
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(147,5): error MSB3073: call EngineCopy.bat
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(147,5): error MSB3073: :VCEnd" 명령이 종료되었습니다(코드: 4).
+  .\Engine\test.fx
+  1개 파일이 복사되었습니다.
+FXC : warning X4717: Effects deprecated for D3DCompiler_47
+  
+  //
+  // FX Version: fx_5_0
+  pch.cpp
+  CDevice.cpp
+  CEngine.cpp
+  CKeyMgr.cpp
+  CPathMgr.cpp
+  CTest.cpp
+  CTimeMgr.cpp
+  Engine.cpp
+  코드를 생성하고 있습니다...
+  Engine.vcxproj -> D:\신중은\DirectX_1\External\Library\Engine\Engine_d.lib

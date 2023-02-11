@@ -1,7 +1,8 @@
 #pragma once
+#include "CSingleton.h"
 
-class CDevice :
-    public CSingleton<CDevice>
+class CDevice
+    : public CSingleton<CDevice>
 {
 private:
     HWND m_hWnd;
@@ -18,7 +19,6 @@ private:
 
     D3D11_VIEWPORT m_ViewPort;
 
-
 public:
     int DeviceInit(HWND _hWnd, UINT _renderWidth, UINT _renderHeight);
     void ClearTarget(float(&_color)[4]);
@@ -31,6 +31,7 @@ public:
 private:
     int CreateSwapChain();
     int CreateView();
+
 public:
     CDevice();
     ~CDevice();

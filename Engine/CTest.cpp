@@ -42,12 +42,16 @@ void TestInit()
 	wstring strShaderFile = CPathMgr::GetInst()->GetContentPath();
 	strShaderFile += L"shader\\test.fx";
 
+	g_VSBlob;
+
 	// VertexShader Compile
 	if (FAILED(D3DCompileFromFile(strShaderFile.c_str(), nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE
 		, "VS_TEST", "vs_5_0", 0, 0, g_VSBlob.GetAddressOf(), g_ErrBlob.GetAddressOf())))
 	{
 		MessageBoxA(nullptr, (const char*)g_ErrBlob->GetBufferPointer(), "Vertex Shader Compile Failed!", MB_OK);
 	}
+
+	g_VSBlob;
 
 	// PixelShader Compile
 	if (FAILED(D3DCompileFromFile(strShaderFile.c_str(), nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE

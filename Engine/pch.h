@@ -7,7 +7,8 @@
 #ifndef PCH_H
 #define PCH_H
 
-// 여기에 미리 컴파일하려는 헤더 추가
+#pragma comment(lib, "DirectXTK//DirectXTK.lib")
+
 #include "framework.h"
 #include <stdlib.h>
 #include <Windows.h>
@@ -18,25 +19,25 @@
 
 
 // DirectXTK
-#include "BufferHelpers.h"
-#include "CommonStates.h"
-#include "DDSTextureLoader.h"
-#include "DirectXHelpers.h"
-#include "Effects.h"
-#include "GamePad.h"
-#include "GeometricPrimitive.h"
-#include "GraphicsMemory.h"
-#include "Keyboard.h"
-#include "Model.h"
-#include "Mouse.h"
-#include "PostProcess.h"
-#include "PrimitiveBatch.h"
-#include "ScreenGrab.h"
+//#include "BufferHelpers.h"
+//#include "CommonStates.h"
+//#include "DDSTextureLoader.h"
+//#include "DirectXHelpers.h"
+//#include "Effects.h"
+//#include "GamePad.h"
+//#include "GeometricPrimitive.h"
+//#include "GraphicsMemory.h"
+//#include "Keyboard.h"
+//#include "Model.h"
+//#include "Mouse.h"
+//#include "PostProcess.h"
+//#include "PrimitiveBatch.h"
+//#include "ScreenGrab.h"
+//#include "SpriteBatch.h"
+//#include "SpriteFont.h"
+//#include "VertexTypes.h"
+//#include "WICTextureLoader.h"
 #include "SimpleMath.h"
-#include "SpriteBatch.h"
-#include "SpriteFont.h"
-#include "VertexTypes.h"
-#include "WICTextureLoader.h"
 
 using std::vector;
 using std::list;
@@ -45,7 +46,7 @@ using std::make_pair;
 using std::wstring;
 using std::string;
 
-#include "global.h"
 
+#include "global.h"
 
 #endif //PCH_H

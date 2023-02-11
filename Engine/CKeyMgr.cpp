@@ -2,6 +2,47 @@
 #include "CKeyMgr.h"
 #include "CEngine.h"
 
+int g_arrVK[(UINT)KEY::END]
+=
+{
+	 VK_UP,
+	 VK_DOWN,
+	 VK_LEFT,
+	 VK_RIGHT,
+
+	 VK_SPACE,
+	 VK_RETURN,
+	 VK_ESCAPE,
+	 VK_LMENU,
+	 VK_LCONTROL,
+	 VK_LSHIFT,
+	 VK_TAB,
+
+	 VK_LBUTTON,
+	 VK_RBUTTON,
+
+	 'Q',
+	 'W',
+	 'E',
+	 'R',
+
+	 'A',
+	 'S',
+	 'D',
+	 'F',
+
+	 '0',
+	 '1',
+	 '2',
+	 '3',
+	 '4',
+	 '5',
+	 '6',
+	 '7',
+	 '8',
+	 '9',
+};
+
 CKeyMgr::CKeyMgr()
 {
 }
