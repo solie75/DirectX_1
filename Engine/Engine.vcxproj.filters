@@ -42,7 +42,6 @@
     <ClInclude Include="pch.h">
       <Filter>Default</Filter>
     </ClInclude>
-    <ClInclude Include="CSingleton.h" />
     <ClInclude Include="CEngine.h">
       <Filter>Source\01.Engine</Filter>
     </ClInclude>
@@ -67,6 +66,9 @@
     </ClInclude>
     <ClInclude Include="define.h">
       <Filter>Source\00.Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CSingleton.h">
+      <Filter>Source\08.Module</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

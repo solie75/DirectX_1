@@ -11,10 +11,10 @@
   10개 파일이 복사되었습니다.
   .\Engine\test.fx
   1개 파일이 복사되었습니다.
-FXC : warning X4717: Effects deprecated for D3DCompiler_47
-  
   //
   // FX Version: fx_5_0
+FXC : warning X4717: Effects deprecated for D3DCompiler_47
+  
   pch.cpp
   CDevice.cpp
   CEngine.cpp
@@ -24,4 +24,4 @@ FXC : warning X4717: Effects deprecated for D3DCompiler_47
   CTimeMgr.cpp
   Engine.cpp
   코드를 생성하고 있습니다...
-  Engine.vcxproj -> D:\신중은\DirectX_1\External\Library\Engine\Engine_d.lib
+  Engine.vcxproj -> C:\Users\shinjoongeun\Documents\GitHub\DirectX_1\External\Library\Engine\Engine_d.lib

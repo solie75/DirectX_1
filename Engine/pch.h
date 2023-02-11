@@ -7,7 +7,7 @@
 #ifndef PCH_H
 #define PCH_H
 
-#pragma comment(lib, "DirectXTK//DirectXTK.lib")
+//#pragma comment(lib, "DirectXTK//DirectXTK.lib")
 
 #include "framework.h"
 #include <stdlib.h>
@@ -37,7 +37,7 @@
 //#include "SpriteFont.h"
 //#include "VertexTypes.h"
 //#include "WICTextureLoader.h"
-#include "SimpleMath.h"
+//#include "SimpleMath.h"
 
 using std::vector;
 using std::list;
@@ -48,5 +48,6 @@ using std::string;
 
 
 #include "global.h"
+
 
 #endif //PCH_H

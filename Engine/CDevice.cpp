@@ -82,6 +82,7 @@ int CDevice::CreateSwapChain()
 	tSwapChainDesc.SampleDesc.Count = 1;
 	tSwapChainDesc.SampleDesc.Quality = 0;
 	tSwapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
+	tSwapChainDesc.BufferCount = 1;
 	tSwapChainDesc.OutputWindow = m_hWnd; // 메인 윈도우
 	tSwapChainDesc.Windowed = true;
 	tSwapChainDesc.SwapEffect = DXGI_SWAP_EFFECT::DXGI_SWAP_EFFECT_FLIP_DISCARD;
