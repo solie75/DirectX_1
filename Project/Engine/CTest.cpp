@@ -70,7 +70,52 @@ void TestInit()
 	{
 		MessageBoxA(nullptr, (const char*)g_ErrBlob->GetBufferPointer(), "Pixel Shader Compile Failed!", MB_OK);
 	}
+
+
+	// 컴파일된 객체로 쉐이더를 생성한다.
+	DEVICE->CreateVertexShader(g_VSBlob->GetBufferPointer(), g_VSBlob->GetBufferSize(), nullptr, g_VS.GetAddressOf());
+	DEVICE->CreatePixelShader(g_PSBlob->GetBufferPointer(), g_PSBlob->GetBufferSize(), nullptr, g_PS.GetAddressOf());
+
+	// Input Layer
+	D3D11_INPUT_ELEMENT_DESC LayoutDesc[2] = {};
+
+	// vPos
+	LayoutDesc[0].SemanticName = "POSITION";
+	LayoutDesc[0].SemanticIndex = 0;
+	LayoutDesc[0].Format = DXGI_FORMAT_R32G32B32_FLOAT;
+	LayoutDesc[0].InputSlot = 0;
+	LayoutDesc[0].AlignedByteOffset = 0;
+	LayoutDesc[0].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
+	LayoutDesc[0].InstanceDataStepRate = 0;
+
+	// vColor
+	LayoutDesc[1].SemanticName = "COLOR";
+	LayoutDesc[1].SemanticIndex = 0;
+	LayoutDesc[1].Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
+	LayoutDesc[1].InputSlot = 0;
+	LayoutDesc[1].AlignedByteOffset = 12;
+	LayoutDesc[1].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
+	LayoutDesc[1].InstanceDataStepRate = 0;
+
+	if (FAILED(DEVICE->CreateInputLayout(LayoutDesc, 2, g_VSBlob->GetBufferPointer(), g_VSBlob->GetBufferSize(), g_Layout.GetAddressOf())))
+	{
+		assert(nullptr);
+	}
+
 }
+
+
+
+//typedef struct D3D11_INPUT_ELEMENT_DESC
+//{
+//	LPCSTR SemanticName;
+//	UINT SemanticIndex;
+//	DXGI_FORMAT Format;
+//	UINT InputSlot;
+//	UINT AlignedByteOffset;
+//	D3D11_INPUT_CLASSIFICATION InputSlotClass;
+//	UINT InstanceDataStepRate;
+//} 	D3D11_INPUT_ELEMENT_DESC;
 
 void TestTick()
 {
@@ -78,9 +123,38 @@ void TestTick()
 
 void TestRender()
 {
+	// IA
+	UINT iStride = sizeof(Vtx); 
+	UINT iOffset = 0;
+
+	CONTEXT->IASetVertexBuffers(0, 1, g_VB.GetAddressOf(), &iStride, &iOffset);
+	CONTEXT->IASetInputLayout(g_Layout.Get());
+	CONTEXT->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY::D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+	CONTEXT->VSSetShader(g_VS.Get(), nullptr, 0);
+	CONTEXT->PSSetShader(g_PS.Get(), nullptr, 0);
+	CONTEXT->Draw(3, 0);
+
 }
 
 void TestRelease()
 {
 }
 
+//void TestRender()
+//{
+//	// IA
+//	UINT iStride = sizeof(Vtx); //  버퍼에서는 연달아 있는 메모리상에서 버퍼별로 끊어 주어야 하는 데 그 때 알아야할 각 버퍼의 크기;
+//	UINT iOffset = 0; // 하나의 정점 버퍼 안에서 랜더링 을 시작하고 싶은 정점의 주소를 말한다. 현재는 전부 다 랜더링 할 것임으로 0;
+//	CONTEXT->IASetVertexBuffers(0, 1, g_VB.GetAddressOf(), &iStride, &iOffset);
+//	// 헨더링 파이프 라인의 과정이 시작되면 현재 지금 지정한 버퍼(g_VB)가 IA 단계가 시작 될때 전달된다.
+//	// 그렇다고 IASetVertexBuffer호출이 랜더링 파이프 라인의 과정중 IA 에 속하는 것은 아니다. 단지 IA 단계에 사용될 VertexBuffer 가 G_VB 라는 것을 알리는 것.
+//	CONTEXT->IASetInputLayout(g_Layout.Get());
+//	CONTEXT->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY::D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+//	// 정덤들을 기준으로 몇개씩 묶을지 정한다. 이때 TRIANGLELIST 이므로 세개의 정점을 묶어서 삼각형을 만들겠다는 의미.
+//
+//	CONTEXT->VSSetShader(g_VS.Get(), nullptr, 0);
+//	CONTEXT->PSSetShader(g_PS.Get(), nullptr, 0);
+//
+//	CONTEXT->Draw(3, 0); // 실제로 랜더링 파이프 라인을 시작시키는 함수
+//	// 첫번째 인자로 
+//}

@@ -4,7 +4,7 @@
 // vs 입력 구조체
 struct VS_IN
 {
-    float3 vPos : POSITIONT; // semantic, 레이아웃에서 정보를 가져온다.
+    float3 vPos : POSITION; // semantic, 레이아웃에서 정보를 가져온다.
     float4 vColor : COLOR;
 };
 // 쉐이더에서 요구하는 정확한 정보가 정점 안에 어디에 있는지를 알려주는 것이 레이아웃 구조체이다.

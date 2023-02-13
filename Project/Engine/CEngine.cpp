@@ -51,9 +51,19 @@ void CEngine::EngineProgress()
 
 void CEngine::CEngineTick()
 {
+    TestTick();
 }
 
 void CEngine::CEngineRender()
 {
+    // ·»´õ ½ÃÀÛ
+    //float arrColor[4] = { 0.4f, 0.4f, 0.4f, 1.f };
+    float arrColor[4] = { 0.f, 0.f, 0.f, 1.f };
+    CDevice::GetInst()->ClearTarget(arrColor);
+    
+    TestRender();
+
+    // ·»´õ Á¾·á
+    CDevice::GetInst()->Present();
 }
 

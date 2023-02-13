@@ -75,7 +75,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         }
         else
         {
-            // 더이상 처리할 메시지가 없는 경우 해당 블록을 진행한다.
+            CEngine::GetInst()->EngineProgress();
         }
     }
 
