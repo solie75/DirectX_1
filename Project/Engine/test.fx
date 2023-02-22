@@ -11,10 +11,12 @@ struct VS_IN
 
 struct VS_OUT
 {
-    float4 vPosition : SV_Position;
+    float4 vPosition : SV_Position; // 여기에서 SV 는 system value 임을 뜻한다.
+    float4 vOutColor : COLOR;
 };
 
 // vertex shader
+// LocalSpace 물체를 NDC 좌표계로 이동
 VS_OUT VS_TEST(VS_IN _in)
 {
     VS_OUT output = (VS_OUT) 0.f; // 초기화 값
