@@ -4,3 +4,4 @@
 
 #define DEVICE CDevice::GetInst()->GetCDevice()
 #define CONTEXT CDevice::GetInst()->GetCContext()
+

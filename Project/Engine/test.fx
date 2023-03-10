@@ -17,12 +17,13 @@ struct VS_OUT
 };
 
 // vertex shader
-// LocalSpace 물체를 NDC 좌표계로 이동
+// Local Space 물체를 NDC 좌표계로 이동
 VS_OUT VS_TEST(VS_IN _in)
 {
     VS_OUT output = (VS_OUT) 0.f; // 초기화 값
     
     output.vPosition = float4(_in.vPos, 1.f);
+    output.vOutColor = _in.vColor;
     
     return output;
 }
@@ -32,7 +33,7 @@ float4 PS_TEST(VS_OUT _in) : SV_Target
 {
     float4 vColor = (float) 0.f;
     
-    vColor = float4(1.f, 0.f, 0.f, 1.f);
+    vColor = _in.vOutColor;
     
     return vColor;
 }
