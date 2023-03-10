@@ -3,8 +3,11 @@
 #include "CPathMgr.h"
 
 
+
 // Vertex Buffer
 ComPtr<ID3D11Buffer> g_VB;
+ComPtr<ID3D11Buffer> g_IB; // index buffer
+ComPtr<ID3D11Buffer> g_CB; // constant buffer
 
 // Compiled Shader
 ComPtr<ID3DBlob> g_VSBlob; // 컴파일 완료된 vertex shader binary 코드를 저장.

@@ -51,6 +51,9 @@ void CEngine::EngineProgress()
 
 void CEngine::CEngineTick()
 {
+    // Manager Tick
+    CTimeMgr::GetInst()->TimeMgrTick();
+    CKeyMgr::GetInst()->KeyMgrTick();
     TestTick();
 }
 
@@ -61,6 +64,9 @@ void CEngine::CEngineRender()
     float arrColor[4] = { 0.f, 0.f, 0.f, 1.f };
     CDevice::GetInst()->ClearTarget(arrColor);
     
+    // Manager render
+    CTimeMgr::GetInst()->TimeMgrInit();
+
     TestRender();
 
     // ·»´õ Á¾·á
