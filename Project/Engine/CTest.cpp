@@ -1,10 +1,14 @@
 #include "pch.h"
 #include "CTest.h"
+#include "CDevice.h"
+
 #include "CPathMgr.h"
+#include "CKeyMgr.h"
+#include "CTimeMgr.h"
 
 
 
-// Vertex Buffer
+// Buffer
 ComPtr<ID3D11Buffer> g_VB;
 ComPtr<ID3D11Buffer> g_IB; // index buffer
 ComPtr<ID3D11Buffer> g_CB; // constant buffer
@@ -21,20 +25,39 @@ ComPtr<ID3D11PixelShader> g_PS; // Pixel Shader 객체 g_PSBlob 으로 만든다.
 // Input Layout
 ComPtr<ID3D11InputLayout> g_Layout;
 
+// vectex
+Vtx g_arrVtx[4] = {}; // 정점을 자료형으로 하는 배열 -> 하나의 사각형을 만들예정이기 때문에 크기가 4
+UINT g_arrIdx[6] = {}; // 왜 인덱스의 크기가 6이지?
+
 void TestInit()
 {
-	Vtx arrVts[3] = {};
+	// 0 --- 1 
+	// |  \  |
+	// 3 --- 2
+	g_arrVtx[0].vPosition = Vec3(-0.5f, 0.5f, 0.5f);
+	g_arrVtx[0].vColor = Vec4(1.f, 0.f, 0.f, 1.f);
 
-	arrVts[0].vPosition = Vec3(0.f, 1.f, 0.5f);
-	arrVts[0].vColor = Vec4(1.f, 1.f, 1.f, 1.f);
-	arrVts[1].vPosition = Vec3(1.f, -1.f, 0.5f);
-	arrVts[1].vColor = Vec4(1.f, 1.f, 1.f, 1.f);
-	arrVts[2].vPosition = Vec3(-1.f, -1.f, 0.5f);
-	arrVts[2].vColor = Vec4(1.f, 1.f, 1.f, 1.f);
+	g_arrVtx[1].vPosition = Vec3(0.5f, 0.5f, 0.5f);
+	g_arrVtx[1].vColor = Vec4(0.f, 1.f, 0.f, 1.f);
+
+	g_arrVtx[2].vPosition = Vec3(0.5f, -0.5f, 0.5f);
+	g_arrVtx[2].vColor = Vec4(0.f, 0.f, 1.f, 1.f);
+
+	g_arrVtx[3].vPosition = Vec3(-0.5f, -0.5f, 0.5f);
+	g_arrVtx[3].vColor = Vec4(0.f, 0.f, 0.f, 1.f);
+
+	//Vtx arrVts[3] = {}; // 기본의 빨간색 삼각형
+
+	//arrVts[0].vPosition = Vec3(0.f, 1.f, 0.5f);
+	//arrVts[0].vColor = Vec4(1.f, 1.f, 1.f, 1.f);
+	//arrVts[1].vPosition = Vec3(1.f, -1.f, 0.5f);
+	//arrVts[1].vColor = Vec4(1.f, 1.f, 1.f, 1.f);
+	//arrVts[2].vPosition = Vec3(-1.f, -1.f, 0.5f);
+	//arrVts[2].vColor = Vec4(1.f, 1.f, 1.f, 1.f);
 
 	D3D11_BUFFER_DESC tBufferDesc = {};
 
-	tBufferDesc.ByteWidth = sizeof(Vtx) * 3; // 버퍼의 용량의 크기
+	tBufferDesc.ByteWidth = sizeof(Vtx) * 4; // 버퍼의 용량의 크기
 	tBufferDesc.Usage = D3D11_USAGE_DYNAMIC; // cpu 에 접근하는 방식
 	tBufferDesc.BindFlags = D3D11_BIND_FLAG::D3D11_BIND_VERTEX_BUFFER; // 버퍼의 용도 (버퍼는 형체가 확실하지 않은 단순 데이터 이지만 그 역할을 확실히 해주어야 한다.)
 	tBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_FLAG::D3D11_CPU_ACCESS_WRITE; // 정점의 위치를 바꾸고 싶다면 사용자가 버퍼의 내용을 바꿔야 하기 때문.
@@ -44,12 +67,38 @@ void TestInit()
 
 	// Subresource 설정
 	D3D11_SUBRESOURCE_DATA tSub = {};
-	tSub.pSysMem = arrVts;
+	tSub.pSysMem = g_arrVtx;
 	tSub.SysMemPitch = 0;
 	tSub.SysMemSlicePitch = 0;
 
 	// 버퍼 생성
 	if (FAILED(DEVICE->CreateBuffer(&tBufferDesc, &tSub, g_VB.GetAddressOf())))
+	{
+		assert(nullptr);
+	}
+
+	// index buffer 생성
+	g_arrIdx[0] = 0;
+	g_arrIdx[1] = 2;
+	g_arrIdx[2] = 3;
+	g_arrIdx[3] = 0;
+	g_arrIdx[4] = 1;
+	g_arrIdx[5] = 2;
+
+	// 인덱스 버퍼 용도
+	tBufferDesc.BindFlags = D3D11_BIND_FLAG::D3D11_BIND_INDEX_BUFFER;
+
+	// 수정 불가능
+	tBufferDesc.CPUAccessFlags = 0;
+	tBufferDesc.Usage = D3D11_USAGE_DEFAULT;
+
+	// 버퍼의 크기
+	tBufferDesc.ByteWidth = sizeof(UINT) * 6;
+
+	// 인덱스 버퍼 subresource 생성
+	tSub.pSysMem = g_arrIdx;
+	// 버퍼 생성
+	if (FAILED(DEVICE->CreateBuffer(&tBufferDesc, &tSub, g_IB.GetAddressOf())))
 	{
 		assert(nullptr);
 	}
@@ -122,6 +171,43 @@ void TestInit()
 
 void TestTick()
 {
+	if (KEY_PRESSED(KEY::UP))
+	{
+		for (int i = 0; i < 4; ++i)
+		{
+			g_arrVtx[i].vPosition.y += DT * 1.f;
+		}
+	}
+
+	if (KEY_PRESSED(KEY::DOWN))
+	{
+		for (int i = 0; i < 4; ++i)
+		{
+			g_arrVtx[i].vPosition.y -= DT * 1.f;
+		}
+	}
+
+	if (KEY_PRESSED(KEY::RIGHT))
+	{
+		for (int i = 0; i < 4; ++i)
+		{
+			g_arrVtx[i].vPosition.x += DT * 1.f;
+		}
+	}
+
+	if (KEY_PRESSED(KEY::LEFT))
+	{
+		for (int i = 0; i < 4; ++i)
+		{
+			g_arrVtx[i].vPosition.x -= DT * 1.f;
+		}
+	}
+
+	D3D11_MAPPED_SUBRESOURCE tSubRes = {};
+	
+	CONTEXT->Map(g_VB.Get(), 0, D3D11_MAP::D3D11_MAP_WRITE_DISCARD, 0, &tSubRes);
+	memcpy(tSubRes.pData, g_arrVtx, sizeof(Vtx) * 4);
+	CONTEXT->Unmap(g_VB.Get(), 0);
 }
 
 void TestRender()
