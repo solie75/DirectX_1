@@ -67,7 +67,7 @@ void CKeyMgr::KeyMgrTick()
 		for (size_t i = 0; i < m_vecKey.size(); ++i)
 		{
 			//호출시점에 눌린 상태이면 true
-			if (GetAsyncKeyState(g_arrVK[(UINT)m_vecKey[i].key] & 0x8000)) 
+			if (GetAsyncKeyState(g_arrVK[(UINT)m_vecKey[i].key]) & 0x8000) 
 			{
 				// 이전 프레임에 안눌린 경우
 				if (false == m_vecKey[i].bPrev)

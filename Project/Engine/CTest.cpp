@@ -31,6 +31,14 @@ UINT g_arrIdx[6] = {}; // 왜 인덱스의 크기가 6이지?
 
 void TestInit()
 {
+
+	D3D11_BUFFER_DESC tBufferDesc = {};
+
+	tBufferDesc.ByteWidth = sizeof(Vtx) * 4; // 버퍼의 용량의 크기
+	tBufferDesc.BindFlags = D3D11_BIND_FLAG::D3D11_BIND_CONSTANT_BUFFER;
+	tBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
+	tBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+
 	// 0 --- 1 
 	// |  \  |
 	// 3 --- 2
@@ -46,19 +54,9 @@ void TestInit()
 	g_arrVtx[3].vPosition = Vec3(-0.5f, -0.5f, 0.5f);
 	g_arrVtx[3].vColor = Vec4(0.f, 0.f, 0.f, 1.f);
 
-	//Vtx arrVts[3] = {}; // 기본의 빨간색 삼각형
-
-	//arrVts[0].vPosition = Vec3(0.f, 1.f, 0.5f);
-	//arrVts[0].vColor = Vec4(1.f, 1.f, 1.f, 1.f);
-	//arrVts[1].vPosition = Vec3(1.f, -1.f, 0.5f);
-	//arrVts[1].vColor = Vec4(1.f, 1.f, 1.f, 1.f);
-	//arrVts[2].vPosition = Vec3(-1.f, -1.f, 0.5f);
-	//arrVts[2].vColor = Vec4(1.f, 1.f, 1.f, 1.f);
-
-	D3D11_BUFFER_DESC tBufferDesc = {};
-
-	tBufferDesc.ByteWidth = sizeof(Vtx) * 4; // 버퍼의 용량의 크기
-	tBufferDesc.Usage = D3D11_USAGE_DYNAMIC; // cpu 에 접근하는 방식
+	
+	// 정점 버퍼 desc
+	tBufferDesc.Usage = D3D11_USAGE_DEFAULT; // cpu 에 접근하는 방식
 	tBufferDesc.BindFlags = D3D11_BIND_FLAG::D3D11_BIND_VERTEX_BUFFER; // 버퍼의 용도 (버퍼는 형체가 확실하지 않은 단순 데이터 이지만 그 역할을 확실히 해주어야 한다.)
 	tBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_FLAG::D3D11_CPU_ACCESS_WRITE; // 정점의 위치를 바꾸고 싶다면 사용자가 버퍼의 내용을 바꿔야 하기 때문.
 	tBufferDesc.MiscFlags = 0;
@@ -71,7 +69,7 @@ void TestInit()
 	tSub.SysMemPitch = 0;
 	tSub.SysMemSlicePitch = 0;
 
-	// 버퍼 생성
+	// 정점 버퍼 생성
 	if (FAILED(DEVICE->CreateBuffer(&tBufferDesc, &tSub, g_VB.GetAddressOf())))
 	{
 		assert(nullptr);
@@ -85,9 +83,8 @@ void TestInit()
 	g_arrIdx[4] = 1;
 	g_arrIdx[5] = 2;
 
-	// 인덱스 버퍼 용도
+	// 인덱스 버퍼 desc
 	tBufferDesc.BindFlags = D3D11_BIND_FLAG::D3D11_BIND_INDEX_BUFFER;
-
 	// 수정 불가능
 	tBufferDesc.CPUAccessFlags = 0;
 	tBufferDesc.Usage = D3D11_USAGE_DEFAULT;
@@ -97,7 +94,8 @@ void TestInit()
 
 	// 인덱스 버퍼 subresource 생성
 	tSub.pSysMem = g_arrIdx;
-	// 버퍼 생성
+
+	// 인덱스 버퍼 생성
 	if (FAILED(DEVICE->CreateBuffer(&tBufferDesc, &tSub, g_IB.GetAddressOf())))
 	{
 		assert(nullptr);
@@ -175,7 +173,7 @@ void TestTick()
 	{
 		for (int i = 0; i < 4; ++i)
 		{
-			g_arrVtx[i].vPosition.y += DT * 1.f;
+			g_arrVtx[i].vPosition.y += DT * 0.1f;
 		}
 	}
 
@@ -183,7 +181,7 @@ void TestTick()
 	{
 		for (int i = 0; i < 4; ++i)
 		{
-			g_arrVtx[i].vPosition.y -= DT * 1.f;
+			g_arrVtx[i].vPosition.y -= DT * 0.1f;
 		}
 	}
 
@@ -191,7 +189,7 @@ void TestTick()
 	{
 		for (int i = 0; i < 4; ++i)
 		{
-			g_arrVtx[i].vPosition.x += DT * 1.f;
+			g_arrVtx[i].vPosition.x += DT * 0.1f;
 		}
 	}
 
@@ -199,7 +197,7 @@ void TestTick()
 	{
 		for (int i = 0; i < 4; ++i)
 		{
-			g_arrVtx[i].vPosition.x -= DT * 1.f;
+			g_arrVtx[i].vPosition.x -= DT * 0.1f;
 		}
 	}
 
@@ -217,11 +215,13 @@ void TestRender()
 	UINT iOffset = 0;
 
 	CONTEXT->IASetVertexBuffers(0, 1, g_VB.GetAddressOf(), &iStride, &iOffset);
+	CONTEXT->IASetIndexBuffer(g_IB.Get(), DXGI_FORMAT_R32_UINT, 0);
 	CONTEXT->IASetInputLayout(g_Layout.Get());
 	CONTEXT->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY::D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 	CONTEXT->VSSetShader(g_VS.Get(), nullptr, 0);
 	CONTEXT->PSSetShader(g_PS.Get(), nullptr, 0);
-	CONTEXT->Draw(3, 0);
+	//CONTEXT->Draw(3, 0);
+	CONTEXT->DrawIndexed(6, 0, 0);
 
 }
 

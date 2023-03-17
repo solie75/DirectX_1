@@ -15,5 +15,5 @@ FXC : warning X4717: Effects deprecated for D3DCompiler_47
   
   //
   // FX Version: fx_5_0
-  CDevice.cpp
+  CTest.cpp
   Engine.vcxproj -> D:\신중은\DirectX_1\External\Library\Engine\Engine_d.lib

@@ -26,7 +26,7 @@ void CTimeMgr::TimeMgrInit()
 
 void CTimeMgr::TimeMgrTick()
 {
-	//QueryPerformanceCounter(&m_llCurCount); // TimeMgrInit 에서 이미 실행한 함수이다.
+	QueryPerformanceCounter(&m_llCurCount); // TimeMgrInit 에서 이미 실행한 함수이다.
 
 	// tick 주기 시간
 	m_fDeltaTime = (float)(m_llCurCount.QuadPart - m_llPrevCount.QuadPart) / (float)m_llFrequency.QuadPart;
