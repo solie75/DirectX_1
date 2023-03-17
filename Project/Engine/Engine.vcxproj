@@ -172,6 +172,7 @@ call EngineCopy.bat</Command>
   <ItemGroup>
     <ClInclude Include="CDevice.h" />
     <ClInclude Include="CEngine.h" />
+    <ClInclude Include="CEntity.h" />
     <ClInclude Include="CKeyMgr.h" />
     <ClInclude Include="CPathMgr.h" />
     <ClInclude Include="CSingleton.h" />
@@ -186,6 +187,7 @@ call EngineCopy.bat</Command>
   <ItemGroup>
     <ClCompile Include="CDevice.cpp" />
     <ClCompile Include="CEngine.cpp" />
+    <ClCompile Include="CEntity.cpp" />
     <ClCompile Include="CKeyMgr.cpp" />
     <ClCompile Include="CPathMgr.cpp" />
     <ClCompile Include="CTest.cpp" />

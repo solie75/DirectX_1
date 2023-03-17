@@ -70,6 +70,9 @@
     <ClInclude Include="CSingleton.h">
       <Filter>Source\08.Module</Filter>
     </ClInclude>
+    <ClInclude Include="CEntity.h">
+      <Filter>Source</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -94,6 +97,9 @@
       <Filter>Source\03.Manager\03.KeyMgr</Filter>
     </ClCompile>
     <ClCompile Include="CTest.cpp" />
+    <ClCompile Include="CEntity.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="test.fx">

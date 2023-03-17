@@ -31,13 +31,20 @@ UINT g_arrIdx[6] = {}; // 왜 인덱스의 크기가 6이지?
 
 void TestInit()
 {
-
+	// 버퍼 desc 선언
 	D3D11_BUFFER_DESC tBufferDesc = {};
 
+	// constant buffer 선언
 	tBufferDesc.ByteWidth = sizeof(Vtx) * 4; // 버퍼의 용량의 크기
 	tBufferDesc.BindFlags = D3D11_BIND_FLAG::D3D11_BIND_CONSTANT_BUFFER;
 	tBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
-	tBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	tBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_FLAG::D3D11_CPU_ACCESS_WRITE;
+
+	// constant buffer 생성
+	if (FAILED(DEVICE->CreateBuffer(&tBufferDesc, nullptr, g_CB.GetAddressOf())))
+	{
+		assert(nullptr);
+	}
 
 	// 0 --- 1 
 	// |  \  |
@@ -58,7 +65,7 @@ void TestInit()
 	// 정점 버퍼 desc
 	tBufferDesc.Usage = D3D11_USAGE_DEFAULT; // cpu 에 접근하는 방식
 	tBufferDesc.BindFlags = D3D11_BIND_FLAG::D3D11_BIND_VERTEX_BUFFER; // 버퍼의 용도 (버퍼는 형체가 확실하지 않은 단순 데이터 이지만 그 역할을 확실히 해주어야 한다.)
-	tBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_FLAG::D3D11_CPU_ACCESS_WRITE; // 정점의 위치를 바꾸고 싶다면 사용자가 버퍼의 내용을 바꿔야 하기 때문.
+	tBufferDesc.CPUAccessFlags = 0; // 정점의 위치를 바꾸고 싶다면 사용자가 버퍼의 내용을 바꿔야 하기 때문.
 	tBufferDesc.MiscFlags = 0;
 	tBufferDesc.StructureByteStride = 0;
 	// -> CPUAccessFlags 와 Usage를 조합하여 사용자는 cpu에 접근해 버퍼를 조작한다.
@@ -203,9 +210,17 @@ void TestTick()
 
 	D3D11_MAPPED_SUBRESOURCE tSubRes = {};
 	
-	CONTEXT->Map(g_VB.Get(), 0, D3D11_MAP::D3D11_MAP_WRITE_DISCARD, 0, &tSubRes);
-	memcpy(tSubRes.pData, g_arrVtx, sizeof(Vtx) * 4);
-	CONTEXT->Unmap(g_VB.Get(), 0);
+	// vertex buffer 기준 map unmap
+	//CONTEXT->Map(g_VB.Get(), 0, D3D11_MAP::D3D11_MAP_WRITE_DISCARD, 0, &tSubRes);
+	//memcpy(tSubRes.pData, g_arrVtx, sizeof(Vtx) * 4);
+	//CONTEXT->Unmap(g_VB.Get(), 0);
+
+	// constant buffer 기준 map unmap (여기에 playerPos 추가할것)
+	if (!FAILED(CONTEXT->Map(g_CB.Get(), 0, D3D11_MAP::D3D11_MAP_WRITE_DISCARD, 0, &tSubRes)))
+	{
+		memcpy(tSubRes.pData, g_arrVtx, sizeof(Vtx) * 4);
+		CONTEXT->Unmap(g_CB.Get(), 0);
+	}
 }
 
 void TestRender()
