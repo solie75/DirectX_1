@@ -29,6 +29,8 @@ ComPtr<ID3D11InputLayout> g_Layout;
 Vtx g_arrVtx[4] = {}; // 정점을 자료형으로 하는 배열 -> 하나의 사각형을 만들예정이기 때문에 크기가 4
 UINT g_arrIdx[6] = {}; // 왜 인덱스의 크기가 6이지?
 
+Vec4 g_PlayerPos; // 플레이어 객체의 위치 정보
+
 void TestInit()
 {
 	// 버퍼 desc 선언
@@ -180,7 +182,8 @@ void TestTick()
 	{
 		for (int i = 0; i < 4; ++i)
 		{
-			g_arrVtx[i].vPosition.y += DT * 0.1f;
+			//g_arrVtx[i].vPosition.y += DT * 0.1f;
+			g_PlayerPos.y += DT * 0.1f;
 		}
 	}
 
@@ -188,7 +191,7 @@ void TestTick()
 	{
 		for (int i = 0; i < 4; ++i)
 		{
-			g_arrVtx[i].vPosition.y -= DT * 0.1f;
+			g_PlayerPos.y -= DT * 0.1f;
 		}
 	}
 
@@ -196,7 +199,7 @@ void TestTick()
 	{
 		for (int i = 0; i < 4; ++i)
 		{
-			g_arrVtx[i].vPosition.x += DT * 0.1f;
+			g_PlayerPos.x += DT * 0.1f;
 		}
 	}
 
@@ -204,28 +207,29 @@ void TestTick()
 	{
 		for (int i = 0; i < 4; ++i)
 		{
-			g_arrVtx[i].vPosition.x -= DT * 0.1f;
+			g_PlayerPos.x -= DT * 0.1f;
 		}
 	}
-
-	D3D11_MAPPED_SUBRESOURCE tSubRes = {};
 	
 	// vertex buffer 기준 map unmap
+	//D3D11_MAPPED_SUBRESOURCE tSubRes = {};
 	//CONTEXT->Map(g_VB.Get(), 0, D3D11_MAP::D3D11_MAP_WRITE_DISCARD, 0, &tSubRes);
 	//memcpy(tSubRes.pData, g_arrVtx, sizeof(Vtx) * 4);
 	//CONTEXT->Unmap(g_VB.Get(), 0);
 
-	// constant buffer 기준 map unmap (여기에 playerPos 추가할것)
+	// constant buffer 기준 map unmap
+	// g_PlayerPos ==> g_CB
+	D3D11_MAPPED_SUBRESOURCE tSubRes = {};
 	if (!FAILED(CONTEXT->Map(g_CB.Get(), 0, D3D11_MAP::D3D11_MAP_WRITE_DISCARD, 0, &tSubRes)))
 	{
-		memcpy(tSubRes.pData, g_arrVtx, sizeof(Vtx) * 4);
+		memcpy(tSubRes.pData, &g_PlayerPos, sizeof(Vec4));
 		CONTEXT->Unmap(g_CB.Get(), 0);
 	}
 }
 
 void TestRender()
 {
-	// IA
+	// Input Assembler
 	UINT iStride = sizeof(Vtx); 
 	UINT iOffset = 0;
 
@@ -233,6 +237,7 @@ void TestRender()
 	CONTEXT->IASetIndexBuffer(g_IB.Get(), DXGI_FORMAT_R32_UINT, 0);
 	CONTEXT->IASetInputLayout(g_Layout.Get());
 	CONTEXT->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY::D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+	CONTEXT->VSSetConstantBuffers(0, 1, g_CB.GetAddressOf());
 	CONTEXT->VSSetShader(g_VS.Get(), nullptr, 0);
 	CONTEXT->PSSetShader(g_PS.Get(), nullptr, 0);
 	//CONTEXT->Draw(3, 0);

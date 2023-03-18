@@ -31,7 +31,16 @@
     <Filter Include="Source\08.Module">
       <UniqueIdentifier>{16f351cc-c8da-4ce7-9b30-12684ef10b7b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\07.ShaderCode">
+    <Filter Include="Source\05.GameObject">
+      <UniqueIdentifier>{c5440d12-3ce9-4618-ab8b-f49e99f4862a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\06.Component">
+      <UniqueIdentifier>{eacdfd51-6d98-4a84-aabb-16e9eddf2eaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\07.Resource">
+      <UniqueIdentifier>{9b49151c-8b1c-42f4-8c6a-b4cd1846b6b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\08.ShaderCode">
       <UniqueIdentifier>{7bfe41ae-c4c4-475d-a46b-13ee71916cf9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -103,7 +112,7 @@
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="test.fx">
-      <Filter>Source\07.ShaderCode</Filter>
+      <Filter>Source\08.ShaderCode</Filter>
     </FxCompile>
   </ItemGroup>
 </Project>
