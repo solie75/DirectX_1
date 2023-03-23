@@ -1,5 +1,7 @@
 #pragma once
 
+#include <assert.h>
+
 #include <wrl.h>
 using namespace Microsoft::WRL;
 
@@ -19,5 +21,6 @@ typedef XMFLOAT3 Vec3;
 typedef XMFLOAT4 Vec4;
 
 #include "define.h"
+#include "func.h"
 #include "struct.h"
 #include "CSingleton.h"

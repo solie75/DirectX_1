@@ -1,7 +1,7 @@
 #ifndef _TEST
 #define _TEST
 
-cBuffer TRANSFORM : register(b0)
+cbuffer TRANSFORM : register(b0) // type 은 상수 버퍼이고 registr 번호는 0 이다. 
 {
     float4 vPlayerPos;
 };

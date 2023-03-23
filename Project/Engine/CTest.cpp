@@ -6,6 +6,11 @@
 #include "CKeyMgr.h"
 #include "CTimeMgr.h"
 
+#include "CGameObject.h"
+
+#include "CTransform.h"
+#include "CMeshRender.h"
+
 
 
 // Buffer
@@ -31,8 +36,17 @@ UINT g_arrIdx[6] = {}; // 왜 인덱스의 크기가 6이지?
 
 Vec4 g_PlayerPos; // 플레이어 객체의 위치 정보
 
+CGameObject* g_Obj = nullptr;
+
 void TestInit()
 {
+	// object 생성
+
+	g_Obj = new CGameObject;
+	g_Obj->AddComponent(new CMeshRender);
+	g_Obj->AddComponent(new CTransform);
+	 
+	 
 	// 버퍼 desc 선언
 	D3D11_BUFFER_DESC tBufferDesc = {};
 
@@ -163,8 +177,6 @@ void TestInit()
 
 }
 
-
-
 //typedef struct D3D11_INPUT_ELEMENT_DESC
 //{
 //	LPCSTR SemanticName;
@@ -230,40 +242,28 @@ void TestTick()
 void TestRender()
 {
 	// Input Assembler
-	UINT iStride = sizeof(Vtx); 
-	UINT iOffset = 0;
+	UINT iStride = sizeof(Vtx); // 버퍼가 메모리 상에 연달아 존재 한다. 이때 버퍼의 크기를 가지고 각 버퍼를 연달아 있는 메모리 상에서 구분할 수 있어야 한다. 이때 사용되는 버퍼의 크기
+	UINT iOffset = 0; // 하나의 정점 버퍼 안에서 렌더링을 시작하고 싶은 정점의 주소를 말한다. -> 정범 버퍼를 처음부터 전부 다 렌더링 할 경우 0 으로 하면 된다.
 
+	// 렌더링 파이프 랑인의 과정이 시작되면 IASetVertexBuffer 로 지정한 g_VB 가 IA stage 가 시작 될 때 바인딩 된다.
+	// 이는 IASetVertexBuffer 호출이 렌더링 파이프 라인의 과정 중에 IA 에 속한다는 것이 아니다. 단지 IA stage 에 사용될 vertex buffer 가 g_VB 라는 것을 알리는데에 그친다.
 	CONTEXT->IASetVertexBuffers(0, 1, g_VB.GetAddressOf(), &iStride, &iOffset);
 	CONTEXT->IASetIndexBuffer(g_IB.Get(), DXGI_FORMAT_R32_UINT, 0);
 	CONTEXT->IASetInputLayout(g_Layout.Get());
+
+	// 정점들을 기준으로 몇개씩 묶을지 정한다. 이때 TRIANGLELIST 이므로 세개의 정점을 묶어서 삼각형을 만들겠다는 의미이다.
 	CONTEXT->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY::D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+
+
 	CONTEXT->VSSetConstantBuffers(0, 1, g_CB.GetAddressOf());
 	CONTEXT->VSSetShader(g_VS.Get(), nullptr, 0);
 	CONTEXT->PSSetShader(g_PS.Get(), nullptr, 0);
-	//CONTEXT->Draw(3, 0);
+	//CONTEXT->Draw(3, 0); // 실제로 rendering pipeline 을 시작시키는 함수
 	CONTEXT->DrawIndexed(6, 0, 0);
 
 }
 
 void TestRelease()
 {
+	delete g_Obj;
 }
-
-//void TestRender()
-//{
-//	// IA
-//	UINT iStride = sizeof(Vtx); //  버퍼에서는 연달아 있는 메모리상에서 버퍼별로 끊어 주어야 하는 데 그 때 알아야할 각 버퍼의 크기;
-//	UINT iOffset = 0; // 하나의 정점 버퍼 안에서 랜더링 을 시작하고 싶은 정점의 주소를 말한다. 현재는 전부 다 랜더링 할 것임으로 0;
-//	CONTEXT->IASetVertexBuffers(0, 1, g_VB.GetAddressOf(), &iStride, &iOffset);
-//	// 헨더링 파이프 라인의 과정이 시작되면 현재 지금 지정한 버퍼(g_VB)가 IA 단계가 시작 될때 전달된다.
-//	// 그렇다고 IASetVertexBuffer호출이 랜더링 파이프 라인의 과정중 IA 에 속하는 것은 아니다. 단지 IA 단계에 사용될 VertexBuffer 가 G_VB 라는 것을 알리는 것.
-//	CONTEXT->IASetInputLayout(g_Layout.Get());
-//	CONTEXT->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY::D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-//	// 정덤들을 기준으로 몇개씩 묶을지 정한다. 이때 TRIANGLELIST 이므로 세개의 정점을 묶어서 삼각형을 만들겠다는 의미.
-//
-//	CONTEXT->VSSetShader(g_VS.Get(), nullptr, 0);
-//	CONTEXT->PSSetShader(g_PS.Get(), nullptr, 0);
-//
-//	CONTEXT->Draw(3, 0); // 실제로 랜더링 파이프 라인을 시작시키는 함수
-//	// 첫번째 인자로 
-//}

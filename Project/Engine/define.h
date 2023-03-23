@@ -9,7 +9,7 @@
 
 #define DT CTimeMgr::GetInst()->GetDeltaTime()
 
-#define CLONE(type) public virtual type* Clone(){return new type(*this);}
+#define CLONE(type) public : virtual type* Clone(){return new type(*this);}
 
 enum class COMPONENT_TYPE
 {

@@ -1,6 +1,11 @@
 #ifndef _TEST
 #define _TEST
 
+cbuffer TRANSFORM : register(b0) // type 은 상수 버퍼이고 registr 번호는 0 이다. 
+{
+    float4 vPlayerPos;
+};
+
 // vs 입력 구조체
 struct VS_IN
 {
@@ -23,6 +28,11 @@ VS_OUT VS_TEST(VS_IN _in)
     VS_OUT output = (VS_OUT) 0.f; // 초기화 값
     
     output.vPosition = float4(_in.vPos, 1.f);
+    // 입력으로 들어온 정점 좌표에 상수 버퍼 값을 더해서 출력한다.
+    float3 vPos = _in.vPos;
+    vPos.xy += vPlayerPos.xy;
+    
+    output.vPosition = float4(vPos, 1.f);
     output.vOutColor = _in.vColor;
     
     return output;
