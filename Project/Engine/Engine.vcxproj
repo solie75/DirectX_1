@@ -177,6 +177,7 @@ call EngineCopy.bat</Command>
     <ClInclude Include="CGameObject.h" />
     <ClInclude Include="CGraphicsShader.h" />
     <ClInclude Include="CKeyMgr.h" />
+    <ClInclude Include="CMesh.h" />
     <ClInclude Include="CMeshRender.h" />
     <ClInclude Include="CPathMgr.h" />
     <ClInclude Include="CResource.h" />
@@ -201,6 +202,7 @@ call EngineCopy.bat</Command>
     <ClCompile Include="CGameObject.cpp" />
     <ClCompile Include="CGraphicsShader.cpp" />
     <ClCompile Include="CKeyMgr.cpp" />
+    <ClCompile Include="CMesh.cpp" />
     <ClCompile Include="CMeshRender.cpp" />
     <ClCompile Include="CPathMgr.cpp" />
     <ClCompile Include="CResource.cpp" />

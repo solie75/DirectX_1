@@ -58,6 +58,9 @@
     <Filter Include="Source\07.Resource\4.Shader\GraphicsShader">
       <UniqueIdentifier>{3462b64c-8b35-4d91-bfda-ca1a80a451e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\07.Resource\1. Mesh">
+      <UniqueIdentifier>{25669481-1db0-44c6-8558-7324efcdf630}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -122,6 +125,9 @@
     <ClInclude Include="CGraphicsShader.h">
       <Filter>Source\07.Resource\4.Shader\GraphicsShader</Filter>
     </ClInclude>
+    <ClInclude Include="CMesh.h">
+      <Filter>Source\07.Resource\1. Mesh</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -169,6 +175,9 @@
     </ClCompile>
     <ClCompile Include="CGraphicsShader.cpp">
       <Filter>Source\07.Resource\4.Shader\GraphicsShader</Filter>
+    </ClCompile>
+    <ClCompile Include="CMesh.cpp">
+      <Filter>Source\07.Resource\1. Mesh</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

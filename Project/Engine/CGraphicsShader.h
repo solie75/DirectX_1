@@ -24,7 +24,7 @@ public:
     void CreatePixelShader(const wstring& _strFileName, const string& _strFuncName);
     void SetTopology(D3D11_PRIMITIVE_TOPOLOGY _Topology) {m_eTopology = _Topology};
 
-    //virtual void UpdateData() override;
+    virtual void UpdateData() override;
 
 public:
     CGraphicsShader();
