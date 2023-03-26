@@ -155,9 +155,6 @@
     <ClCompile Include="CEntity.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="CComponent.cpp">
-      <Filter>Source\06.Component</Filter>
-    </ClCompile>
     <ClCompile Include="CGameObject.cpp">
       <Filter>Source\05.GameObject</Filter>
     </ClCompile>
@@ -178,6 +175,9 @@
     </ClCompile>
     <ClCompile Include="CMesh.cpp">
       <Filter>Source\07.Resource\1. Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="CComponent.cpp">
+      <Filter>Source\06.Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

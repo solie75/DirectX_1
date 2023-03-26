@@ -16,7 +16,7 @@ private:
     void SetRelativePath(const wstring& _strPath) { m_strRelativePath = _strPath; }
 
     void AddRef() { ++m_iRefCount; }
-    void Release();
+    void ReleaseResource();
 
 public:
     const wstring& GetKey() { return m_strKey; }

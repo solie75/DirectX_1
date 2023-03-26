@@ -11,7 +11,7 @@ CResource::~CResource()
 {
 }
 
-void CResource::Release()
+void CResource::ReleaseResource()
 {
 	--m_iRefCount;
 

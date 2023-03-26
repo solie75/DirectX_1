@@ -2,7 +2,7 @@
 #include "CEntity.h"
 #include "CComponent.h"
 
-class CTransform;
+class CTransform;         
 class CMeshRender;
 
 class CGameObject :

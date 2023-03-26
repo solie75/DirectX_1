@@ -22,7 +22,7 @@ void CGameObject::GameObjectRender()
 	}
 
 	// Meshrender 컴포넌트를 가지고 있는 경우 해당 메쉬를 렌더링한다.
-	GetMeshRender()->RenderMesh();
+	GetMeshRender()->BeginRenderingMesh();
 }
 
 

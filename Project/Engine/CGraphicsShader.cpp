@@ -74,7 +74,7 @@ void CGraphicsShader::CreatePixelShader(const wstring& _strFileName, const strin
 	DEVICE->CreatePixelShader(m_PSBlob->GetBufferPointer(), m_PSBlob->GetBufferSize(), nullptr, m_PS.GetAddressOf());
 }
 
-void CGraphicsShader::UpdateData()
+void CGraphicsShader::UpdateResourceData()
 {
 	CONTEXT->IASetInputLayout(m_Layout.Get());
 	CONTEXT->IASetPrimitiveTopology(m_eTopology);

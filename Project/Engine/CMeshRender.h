@@ -21,7 +21,7 @@ public:
 public:
     virtual void finaltick() override;
 
-    void RenderMesh();
+    void BeginRenderingMesh();
 
     CLONE(CMeshRender);
 

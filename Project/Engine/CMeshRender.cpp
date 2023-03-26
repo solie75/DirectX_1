@@ -3,7 +3,7 @@
 #include "CTransform.h"
 
 CMeshRender::CMeshRender()
-	:CComponent(COMPONENT_TYPE::MESHRENDER)
+	:CComponent(COMPONENT_TYPE::MESHRENDERING)
 	, m_pMesh(nullptr)
 	, m_pShader(nullptr)
 {
@@ -18,7 +18,7 @@ void CMeshRender::finaltick()
 {
 }
 
-void CMeshRender::RenderMesh()
+void CMeshRender::BeginRenderingMesh()
 {
 	if (nullptr == m_pMesh || nullptr == m_pShader)
 	{
