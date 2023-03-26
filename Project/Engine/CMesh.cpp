@@ -31,7 +31,7 @@ CMesh::~CMesh()
 }
 
 
-void CMesh::MeshCreate(void* _VtxSysMem, UINT _iVtxCount, void* _IdxSysMem, UINT _IdxCount)
+void CMesh::CreateMesh(void* _VtxSysMem, UINT _iVtxCount, void* _IdxSysMem, UINT _IdxCount)
 {
 	m_VtxCount = _iVtxCount;
 	m_IdxCount = _IdxCount;
@@ -69,14 +69,14 @@ void CMesh::MeshCreate(void* _VtxSysMem, UINT _iVtxCount, void* _IdxSysMem, UINT
 	}
 }
 
-void CMesh::MeshRender()
+void CMesh::RenderMesh()
 {
-	UpdateData();
+	UpdateResourceData();
 
 	CONTEXT->DrawIndexed(m_IdxCount, 0, 0);
 }
 
-void CMesh::UpdateData()
+void CMesh::UpdateResourceData()
 {
 	UINT iStride = sizeof(Vtx);
 	UINT iOffset = 0;

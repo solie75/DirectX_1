@@ -16,11 +16,11 @@ private:
     void* m_pIdxSys;
 
 public:
-    void MeshCreate(void* _VtxSysMem, UINT _iVtxCount, void* _IdxSysMem, UINT _IdxCount);
-    void MeshRender();
+    void CreateMesh(void* _VtxSysMem, UINT _iVtxCount, void* _IdxSysMem, UINT _IdxCount);
+    void RenderMesh();
 
 private:
-    virtual void UpdateData() override;
+    virtual void UpdateResourceData() override;
 
 public:
     CMesh();

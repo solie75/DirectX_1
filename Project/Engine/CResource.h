@@ -24,7 +24,7 @@ public:
 
 public:
     // 리소스 바인딩
-    virtual void UpdateData() = 0;
+    virtual void UpdateResourceData() = 0;
 
     // 리소스는 Clone 을 구현하지 않는다.
     virtual CResource* Clone() { return nullptr; assert(nullptr); }

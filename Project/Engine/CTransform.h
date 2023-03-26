@@ -11,6 +11,7 @@ private:
 
 public:
     virtual void finaltick() override;
+    void UpdateTransformData();
 
     CLONE(CTransform);
 
