@@ -67,6 +67,9 @@
     <Filter Include="Source\02.Device\ConstBuffer">
       <UniqueIdentifier>{6432acb4-3816-446b-b96e-e93e4235ca32}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\03.Manager\05.ResourceMgr">
+      <UniqueIdentifier>{aa414dd0-e215-4b25-ad80-8d84c3ac1bfc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -140,6 +143,12 @@
     <ClInclude Include="CConstBuffer.h">
       <Filter>Source\02.Device\ConstBuffer</Filter>
     </ClInclude>
+    <ClInclude Include="CResourceMgr.h">
+      <Filter>Source\03.Manager\05.ResourceMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="ptr.h">
+      <Filter>Source\03.Manager\05.ResourceMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -196,6 +205,9 @@
     </ClCompile>
     <ClCompile Include="CConstBuffer.cpp">
       <Filter>Source\02.Device\ConstBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="CResourceMgr.cpp">
+      <Filter>Source\03.Manager\05.ResourceMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

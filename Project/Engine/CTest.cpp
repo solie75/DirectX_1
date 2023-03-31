@@ -19,9 +19,9 @@
 // Buffer
 //ComPtr<ID3D11Buffer> g_VB;
 //ComPtr<ID3D11Buffer> g_IB; // index buffer
-ComPtr<ID3D11Buffer> g_CB; // constant buffer
+//ComPtr<ID3D11Buffer> g_CB; // constant buffer
 
-Vec4 g_PlayerPos; // 플레이어 객체의 위치 정보
+//Vec4 g_PlayerPos; // 플레이어 객체의 위치 정보
 CGameObject* g_Obj = nullptr;
 
 CMesh* g_pRectMesh = nullptr; // 사각형 mesh
@@ -31,41 +31,41 @@ void TestInit()
 {
 	// Rectangle Mesh 생성
 
-	vector<Vtx> vecVtx; // 정점 데이터를 가지는 벡터
-	vector<UINT> vecIdx;
-	Vtx v;
+	//vector<Vtx> vecVtx; // 정점 데이터를 가지는 벡터
+	//vector<UINT> vecIdx;
+	//Vtx v;
 
-	v.vPosition = Vec3(-0.5f, 0.5f, 0.5f);
-	v.vColor = Vec4(1.f, 0.f, 0.f, 1.f);
-	vecVtx.push_back(v);
+	//v.vPosition = Vec3(-0.5f, 0.5f, 0.5f);
+	//v.vColor = Vec4(1.f, 0.f, 0.f, 1.f);
+	//vecVtx.push_back(v);
 
-	v.vPosition = Vec3(0.5f, 0.5f, 0.5f);
-	v.vColor = Vec4(0.f, 1.f, 0.f, 1.f);
-	vecVtx.push_back(v);
+	//v.vPosition = Vec3(0.5f, 0.5f, 0.5f);
+	//v.vColor = Vec4(0.f, 1.f, 0.f, 1.f);
+	//vecVtx.push_back(v);
 
-	v.vPosition = Vec3(0.5f, -0.5f, 0.5f);
-	v.vColor = Vec4(0.f, 0.f, 1.f, 1.f);
-	vecVtx.push_back(v);
+	//v.vPosition = Vec3(0.5f, -0.5f, 0.5f);
+	//v.vColor = Vec4(0.f, 0.f, 1.f, 1.f);
+	//vecVtx.push_back(v);
 
-	v.vPosition = Vec3(-0.5f, -0.5f, 0.5f);
-	v.vColor = Vec4(0.f, 0.f, 0.f, 1.f);
-	vecVtx.push_back(v);
+	//v.vPosition = Vec3(-0.5f, -0.5f, 0.5f);
+	//v.vColor = Vec4(0.f, 0.f, 0.f, 1.f);
+	//vecVtx.push_back(v);
 
-	vecIdx.push_back(0);
-	vecIdx.push_back(2);
-	vecIdx.push_back(3);
-	vecIdx.push_back(0);
-	vecIdx.push_back(1);
-	vecIdx.push_back(2);
+	//vecIdx.push_back(0);
+	//vecIdx.push_back(2);
+	//vecIdx.push_back(3);
+	//vecIdx.push_back(0);
+	//vecIdx.push_back(1);
+	//vecIdx.push_back(2);
 
-	// Mesh 생성 (위의 Rectangle Mesh 를 가지고 실제 그려질 대상을 생성한다.)
-	g_pRectMesh = new CMesh;
-	g_pRectMesh->CreateMesh(vecVtx.data(), vecVtx.size(), vecIdx.data(), vecIdx.size());
+	//// Mesh 생성 (위의 Rectangle Mesh 를 가지고 실제 그려질 대상을 생성한다.)
+	//g_pRectMesh = new CMesh;
+	//g_pRectMesh->CreateMesh(vecVtx.data(), vecVtx.size(), vecIdx.data(), vecIdx.size());
 
-	// shader 생성
-	g_pShader = new CGraphicsShader;
-	g_pShader->CreateVertexShader(L"shader\\test.fx", "VS_TEST");
-	g_pShader->CreatePixelShader(L"shader\\test.fx", "PS_TEST");
+	//// shader 생성
+	//g_pShader = new CGraphicsShader;
+	//g_pShader->CreateVertexShader(L"shader\\test.fx", "VS_TEST");
+	//g_pShader->CreatePixelShader(L"shader\\test.fx", "PS_TEST");
 
 
 	// object 생성
@@ -80,25 +80,26 @@ void TestInit()
 
 
 	// 버퍼 desc 선언
-	D3D11_BUFFER_DESC tBufferDesc = {};
+	//D3D11_BUFFER_DESC tBufferDesc = {};
 
 	// constant buffer 선언
-	tBufferDesc.ByteWidth = sizeof(Vec4); // 버퍼의 용량의 크기
-	tBufferDesc.BindFlags = D3D11_BIND_FLAG::D3D11_BIND_CONSTANT_BUFFER;
-	tBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
-	tBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_FLAG::D3D11_CPU_ACCESS_WRITE;
+	//tBufferDesc.ByteWidth = sizeof(Vec4); // 버퍼의 용량의 크기
+	//tBufferDesc.BindFlags = D3D11_BIND_FLAG::D3D11_BIND_CONSTANT_BUFFER;
+	//tBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
+	//tBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_FLAG::D3D11_CPU_ACCESS_WRITE;
 
 	// constant buffer 생성
-	if (FAILED(DEVICE->CreateBuffer(&tBufferDesc, nullptr, g_CB.GetAddressOf())))
+	/*if (FAILED(DEVICE->CreateBuffer(&tBufferDesc, nullptr, g_CB.GetAddressOf())))
 	{
 		assert(nullptr);
-	}
+	}*/
 }
 
 void TestTick()
 {
 	g_Obj->GameObjectTick();
-	
+	g_Obj->GameObjectFinaltick();
+
 	// vertex buffer 기준 map unmap
 	//D3D11_MAPPED_SUBRESOURCE tSubRes = {};
 	//CONTEXT->Map(g_VB.Get(), 0, D3D11_MAP::D3D11_MAP_WRITE_DISCARD, 0, &tSubRes);
@@ -107,12 +108,12 @@ void TestTick()
 
 	// constant buffer 기준 map unmap
 	// g_PlayerPos ==> g_CB
-	D3D11_MAPPED_SUBRESOURCE tSubRes = {};
+	/*D3D11_MAPPED_SUBRESOURCE tSubRes = {};
 	if (!FAILED(CONTEXT->Map(g_CB.Get(), 0, D3D11_MAP::D3D11_MAP_WRITE_DISCARD, 0, &tSubRes)))
 	{
 		memcpy(tSubRes.pData, &g_PlayerPos, sizeof(Vec4));
 		CONTEXT->Unmap(g_CB.Get(), 0);
-	}
+	}*/
 }
 
 void TestRender()

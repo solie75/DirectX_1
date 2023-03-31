@@ -36,25 +36,5 @@ FXC : warning X4717: Effects deprecated for D3DCompiler_47
       float4  vPlayerPos;                 // Offset:    0, size:   16
   }
   
-  pch.cpp
-  CComponent.cpp
   CConstBuffer.cpp
-  CDevice.cpp
-  CEngine.cpp
-  CEntity.cpp
-  CGameObject.cpp
-  CGraphicsShader.cpp
-  CKeyMgr.cpp
-  CMesh.cpp
-  CMeshRender.cpp
-  CPathMgr.cpp
-  CResource.cpp
-  CScript.cpp
-  CShader.cpp
-  CTest.cpp
-D:\신중은\DirectX_1\Project\Engine\CTest.cpp(63,84): warning C4267: '인수': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  CTimeMgr.cpp
-  CTransform.cpp
-  Engine.cpp
-  코드를 생성하고 있습니다...
-  Engine.vcxproj -> D:\신중은\DirectX_1\External\Library\Engine\Engine_d.lib
+  Engine.vcxproj -> C:\Users\shinjoongeun\Documents\GitHub\DirectX_1\External\Library\Engine\Engine_d.lib
