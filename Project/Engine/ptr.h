@@ -14,29 +14,54 @@ public:
 		return m_Resource;
 	}
 
-	void operator = (T* _resource)
+	void operator = (T* _Resource)
 	{
 		if (nullptr != m_Resource)
 		{
-			m_Resource->ReleaseResource()
+			m_Resource->ReleaseResource();
 		}
 
-		m_Resource = _resource;
+		m_Resource = _Resource;
 
 		if (nullptr != m_Resource)
 		{
 			m_Resource->AddRef();
 		}
 	}
+
+	void operator = (const Ptr<T>& _Resource)
+	{
+		if (nullptr != m_Resource)
+		{
+			m_Resource->ReleaseResource();
+		}
+
+		m_Resource = _Resource;
+
+		if (nullptr != m_Resource)
+		{
+			m_Resource->AddRef();
+		}
+	}
+
 public:
 	Ptr()
-		: m_Res(nullptr)
+		: m_Resource(nullptr)
 	{
 
 	}
 
 	Ptr(T* _Resource)
-		: m_Res(_resource)
+		: m_Resource(_Resource)
+	{
+		if (nullptr != m_Resource)
+		{
+			m_Resource->AddRef();
+		}
+	}
+	
+	Ptr(const Ptr<T>& _Resource)
+		:m_Resource(_Resource)
 	{
 		if (nullptr != m_Resource)
 		{
@@ -44,11 +69,11 @@ public:
 		}
 	}
 
-	~Ptr()
-	{
-		if (nullptr == m_Res)
-		{
-			m_Res->ReleaseResource();
-		}
-	}
+	//~Ptr()
+	//{
+	//	if (nullptr == m_Resource)
+	//	{
+	//		m_Resource->ReleaseResource();
+	//	}
+	//}
 };

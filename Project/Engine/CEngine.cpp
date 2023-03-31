@@ -4,6 +4,7 @@
 #include "CPathMgr.h"
 #include "CKeyMgr.h"
 #include "CTimeMgr.h"
+#include "CResourceMgr.h"
 #include "CTest.h"
 
 CEngine::CEngine()
@@ -38,6 +39,7 @@ int CEngine::EngineInit(HWND _hWnd, UINT _iWidth, UINT _iHeight)
     CPathMgr::GetInst()->PathMgrInit();
     CTimeMgr::GetInst()->TimeMgrInit();
     CKeyMgr::GetInst()->KeyMgrInit();
+    CResourceMgr::GetInst()->ResourceMgrInit();
 
     TestInit();
 

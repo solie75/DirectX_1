@@ -33,6 +33,9 @@ public:
     CResource(RESOURCE_TYPE _type);
     virtual ~CResource();
 
-    //friend class CResourceMgr;
+    friend class CResourceMgr;
+
+    template<typename T> // ...? template 의 friend 선언이란...?
+    friend class Ptr;
 };
 

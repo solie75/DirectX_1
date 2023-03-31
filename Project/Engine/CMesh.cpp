@@ -81,6 +81,9 @@ void CMesh::UpdateResourceData()
 	UINT iStride = sizeof(Vtx);
 	UINT iOffset = 0;
 
+
+	// 렌더링 파이프 랑인의 과정이 시작되면 IASetVertexBuffer 로 지정한 g_VB 가 IA stage 가 시작 될 때 바인딩 된다.
+	// 이는 IASetVertexBuffer 호출이 렌더링 파이프 라인의 과정 중에 IA 에 속한다는 것이 아니다. 단지 IA stage 에 사용될 vertex buffer 가 g_VB 라는 것을 알리는데에 그친다.
 	CONTEXT->IASetVertexBuffers(0, 1, m_VB.GetAddressOf(), &iStride, &iOffset);
 	CONTEXT->IASetIndexBuffer(m_IB.Get(), DXGI_FORMAT_R32_UINT, 0);
 }

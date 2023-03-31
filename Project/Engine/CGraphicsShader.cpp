@@ -77,6 +77,7 @@ void CGraphicsShader::CreatePixelShader(const wstring& _strFileName, const strin
 void CGraphicsShader::UpdateResourceData()
 {
 	CONTEXT->IASetInputLayout(m_Layout.Get());
+	// 정점들을 기준으로 몇개씩 묶을지 정한다. 이때 TRIANGLELIST 이므로 세개의 정점을 묶어서 삼각형을 만들겠다는 의미이다.
 	CONTEXT->IASetPrimitiveTopology(m_eTopology);
 
 	CONTEXT->VSSetShader(m_VS.Get(), nullptr, 0);
