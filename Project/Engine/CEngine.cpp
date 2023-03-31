@@ -14,6 +14,7 @@ CEngine::CEngine()
 
 CEngine::~CEngine()
 {
+    TestRelease();
 }
 
 int CEngine::EngineInit(HWND _hWnd, UINT _iWidth, UINT _iHeight)

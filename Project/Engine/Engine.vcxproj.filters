@@ -52,14 +52,20 @@
     <Filter Include="Source\06.Component\RenderComponent\1.MeshRender">
       <UniqueIdentifier>{31269388-18c2-4d9f-b430-e62a68c9bcef}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\07.Resource\4.Shader">
-      <UniqueIdentifier>{1f84bca9-e7f0-4de0-a23c-a146a617ca84}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\07.Resource\4.Shader\GraphicsShader">
-      <UniqueIdentifier>{3462b64c-8b35-4d91-bfda-ca1a80a451e6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source\07.Resource\1. Mesh">
       <UniqueIdentifier>{25669481-1db0-44c6-8558-7324efcdf630}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\06.Component\Script">
+      <UniqueIdentifier>{cb34cfdd-9da7-4922-bacb-87293be0a26f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\07.Resource\4. Shader">
+      <UniqueIdentifier>{1f84bca9-e7f0-4de0-a23c-a146a617ca84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\07.Resource\4. Shader\GraphicsShader">
+      <UniqueIdentifier>{3462b64c-8b35-4d91-bfda-ca1a80a451e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\02.Device\ConstBuffer">
+      <UniqueIdentifier>{6432acb4-3816-446b-b96e-e93e4235ca32}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -120,13 +126,19 @@
       <Filter>Source\06.Component\RenderComponent\1.MeshRender</Filter>
     </ClInclude>
     <ClInclude Include="CShader.h">
-      <Filter>Source\07.Resource\4.Shader</Filter>
+      <Filter>Source\07.Resource\4. Shader</Filter>
     </ClInclude>
     <ClInclude Include="CGraphicsShader.h">
-      <Filter>Source\07.Resource\4.Shader\GraphicsShader</Filter>
+      <Filter>Source\07.Resource\4. Shader\GraphicsShader</Filter>
     </ClInclude>
     <ClInclude Include="CMesh.h">
       <Filter>Source\07.Resource\1. Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="CScript.h">
+      <Filter>Source\06.Component\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="CConstBuffer.h">
+      <Filter>Source\02.Device\ConstBuffer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -168,16 +180,22 @@
       <Filter>Source\06.Component\RenderComponent\1.MeshRender</Filter>
     </ClCompile>
     <ClCompile Include="CShader.cpp">
-      <Filter>Source\07.Resource\4.Shader</Filter>
+      <Filter>Source\07.Resource\4. Shader</Filter>
     </ClCompile>
     <ClCompile Include="CGraphicsShader.cpp">
-      <Filter>Source\07.Resource\4.Shader\GraphicsShader</Filter>
+      <Filter>Source\07.Resource\4. Shader\GraphicsShader</Filter>
     </ClCompile>
     <ClCompile Include="CMesh.cpp">
       <Filter>Source\07.Resource\1. Mesh</Filter>
     </ClCompile>
     <ClCompile Include="CComponent.cpp">
       <Filter>Source\06.Component</Filter>
+    </ClCompile>
+    <ClCompile Include="CScript.cpp">
+      <Filter>Source\06.Component\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="CConstBuffer.cpp">
+      <Filter>Source\02.Device\ConstBuffer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

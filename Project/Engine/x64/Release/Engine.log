@@ -1,26 +1,57 @@
-﻿  .\Engine\CDevice.h
-  .\Engine\CEngine.h
-  .\Engine\CKeyMgr.h
-  .\Engine\CPathMgr.h
-  .\Engine\CSingleton.h
-  .\Engine\CTest.h
-  .\Engine\CTimeMgr.h
-  .\Engine\define.h
-  .\Engine\global.h
-  .\Engine\struct.h
-  10개 파일이 복사되었습니다.
-  .\Engine\test.fx
+﻿  .\Project\Engine\CComponent.h
+  .\Project\Engine\CDevice.h
+  .\Project\Engine\CEngine.h
+  .\Project\Engine\CEntity.h
+  .\Project\Engine\CGameObject.h
+  .\Project\Engine\CGraphicsShader.h
+  .\Project\Engine\CKeyMgr.h
+  .\Project\Engine\CMesh.h
+  .\Project\Engine\CMeshRender.h
+  .\Project\Engine\CPathMgr.h
+  .\Project\Engine\CResource.h
+  .\Project\Engine\CScript.h
+  .\Project\Engine\CShader.h
+  .\Project\Engine\CSingleton.h
+  .\Project\Engine\CTest.h
+  .\Project\Engine\CTimeMgr.h
+  .\Project\Engine\CTransform.h
+  .\Project\Engine\define.h
+  .\Project\Engine\func.h
+  .\Project\Engine\global.h
+  .\Project\Engine\resource.h
+  .\Project\Engine\struct.h
+  22개 파일이 복사되었습니다.
+  .\Project\Engine\test.fx
   1개 파일이 복사되었습니다.
 FXC : warning X4717: Effects deprecated for D3DCompiler_47
   
   //
   // FX Version: fx_5_0
+  //
+  // 1 local buffer(s)
+  //
+  cbuffer TRANSFORM : register(b0)
+  {
+      float4  vPlayerPos;                 // Offset:    0, size:   16
+  }
+  
   pch.cpp
+  CComponent.cpp
   CDevice.cpp
   CEngine.cpp
+  CEntity.cpp
+  CGameObject.cpp
+  CGraphicsShader.cpp
   CKeyMgr.cpp
+  CMesh.cpp
+  CMeshRender.cpp
   CPathMgr.cpp
+  CResource.cpp
+  CScript.cpp
+  CShader.cpp
   CTest.cpp
+D:\신중은\DirectX_1\Project\Engine\CTest.cpp(81,84): warning C4267: '인수': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   CTimeMgr.cpp
+  CTransform.cpp
   Engine.cpp
   Engine.vcxproj -> D:\신중은\DirectX_1\External\Library\Engine\Engine.lib

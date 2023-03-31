@@ -22,7 +22,7 @@ private:
 public:
     void CreateVertexShader(const wstring& _strFileName, const string& _strFuncName); // 파일명과 함수명...?
     void CreatePixelShader(const wstring& _strFileName, const string& _strFuncName);
-    void SetTopology(D3D11_PRIMITIVE_TOPOLOGY _Topology) {m_eTopology = _Topology};
+    void SetTopology(D3D11_PRIMITIVE_TOPOLOGY _Topology) { m_eTopology = _Topology; }
 
     virtual void UpdateResourceData() override;
 

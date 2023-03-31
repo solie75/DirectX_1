@@ -19,7 +19,7 @@ public:
     CGraphicsShader* GetShader() { return m_pShader; }
 
 public:
-    virtual void finaltick() override;
+    virtual void ComponentFinaltick() override;
 
     void BeginRenderingMesh();
 

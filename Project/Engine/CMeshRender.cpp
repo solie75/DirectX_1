@@ -14,7 +14,7 @@ CMeshRender::~CMeshRender()
 }
 
 
-void CMeshRender::finaltick()
+void CMeshRender::ComponentFinaltick()
 {
 }
 

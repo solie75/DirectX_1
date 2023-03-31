@@ -1,10 +1,13 @@
 #include "pch.h"
 #include "CDevice.h"
 #include "CEngine.h"
+#include "CConstBuffer.h"
+
 
 CDevice::CDevice()
 	: m_hWnd(nullptr)
 	, m_ViewPort{}
+	, m_ConstBuffer(nullptr)
 {
 }
 
@@ -61,6 +64,10 @@ int CDevice::DeviceInit(HWND _hWnd, UINT _renderWidth, UINT _renderHeight)
 	m_ViewPort.MaxDepth = 1.f;
 
 	m_Context->RSSetViewports(1, &m_ViewPort);
+
+	// 상수 버퍼 생성
+	m_ConstBuffer = new CConstBuffer(0);
+	m_ConstBuffer->CreateConstBuffer(sizeof(Vec4), 1);
 
 	return S_OK;
 }
@@ -143,5 +150,11 @@ void CDevice::ClearTarget(float(&_color)[4])
 	CONTEXT->ClearRenderTargetView(m_RTV.Get(), _color);
 	CONTEXT->ClearDepthStencilView(m_DSV.Get(), D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.f, 0);
 }
+
+//void CDevice::CreateConstBuffer()
+//{
+//	m_ConstBuffer = new CConstBuffer(0);
+//	m_ConstBuffer->CreateConstBuffer(sizeof(Vec4), 1);
+//}
 
 

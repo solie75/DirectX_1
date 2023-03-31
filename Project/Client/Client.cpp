@@ -1,27 +1,30 @@
 ﻿// Client.cpp : 애플리케이션에 대한 진입점을 정의합니다.
 //
-
-#include "framework.h"
+#include "pch.h"
+//#include "framework.h"
 #include "Client.h"
-
-// Engine Library
-#include <Engine\global.h>
-#include <Engine\CEngine.h>
-
-// Engine Library
-#ifdef _DEBUG
-#pragma comment(lib, "Engine//Engine_d.lib")
-#else
-#pragma comment(lib, "Engine//Engine.lib")
-#endif
-
-#define MAX_LOADSTRING 100
+//
+//// Engine Library
+//#include <Engine\global.h>
+//#include <Engine\CEngine.h>
+//
+//// Engine Library
+//#ifdef _DEBUG
+//#pragma comment(lib, "Engine//Engine_d.lib")
+//#else
+//#pragma comment(lib, "Engine//Engine.lib")
+//#endif
+//
+//// Static Library
+//#ifdef _DEBUG
+//#pragma comment(lib, "Script//Script_d.lib")
+//#else
+//#pragma comment(lib, "Script//Script.lib")
+//#endif
 
 // 전역 변수:
-HINSTANCE hInst;     
-HWND g_hWnd; // 현재 인스턴스입니다.
-WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
-WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
+HINSTANCE hInst;     // 현재 인스턴스입니다.
+HWND g_hWnd;
 
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -39,9 +42,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     // TODO: 여기에 코드를 입력합니다.
 
-    // 전역 문자열을 초기화합니다.
-    LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
-    LoadStringW(hInstance, IDC_CLIENT, szWindowClass, MAX_LOADSTRING);
     MyRegisterClass(hInstance);
 
     // 애플리케이션 초기화를 수행합니다:
@@ -104,7 +104,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
     wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_CLIENT);
-    wcex.lpszClassName  = szWindowClass;
+    wcex.lpszClassName  = L"MyWindow";
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
     return RegisterClassExW(&wcex);
@@ -124,7 +124,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   g_hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+   g_hWnd = CreateWindowW(L"MyWindow", L"MyGame", WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
    if (!g_hWnd)

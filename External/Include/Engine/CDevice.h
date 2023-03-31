@@ -1,6 +1,6 @@
 #pragma once
 
-#include "CSingleton.h"
+class CConstBuffer;
 
 class CDevice
     : public CSingleton<CDevice>
@@ -20,10 +20,15 @@ private:
 
     D3D11_VIEWPORT m_ViewPort;
 
+    //CConstBuffer* m_arrConstBuffer[(UINT)CB_TYPE];
+    CConstBuffer* m_ConstBuffer;
+
 public:
     int DeviceInit(HWND _hWnd, UINT _renderWidth, UINT _renderHeight);
     void ClearTarget(float(&_color)[4]);
     void Present() { m_SwapChain->Present(0, 0); }
+    //void CreateConstBuffer();
+    CConstBuffer* GetConstBuffer() { return m_ConstBuffer; }
 
 public:
     ID3D11Device* GetCDevice() { return m_Device.Get(); }
