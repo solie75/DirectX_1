@@ -7,6 +7,7 @@
 #include "CResourceMgr.h"
 #include "CTest.h"
 
+
 CEngine::CEngine()
     : m_hWnd(nullptr)
     , m_vResolution(0.f, 0.f)
@@ -15,7 +16,6 @@ CEngine::CEngine()
 
 CEngine::~CEngine()
 {
-    TestRelease();
 }
 
 int CEngine::EngineInit(HWND _hWnd, UINT _iWidth, UINT _iHeight)
@@ -57,6 +57,7 @@ void CEngine::CEngineTick()
     // Manager Tick
     CTimeMgr::GetInst()->TimeMgrTick();
     CKeyMgr::GetInst()->KeyMgrTick();
+
     TestTick();
 }
 

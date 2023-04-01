@@ -214,7 +214,6 @@ call EngineCopy.bat</Command>
     <ClCompile Include="CResourceMgr.cpp" />
     <ClCompile Include="CScript.cpp" />
     <ClCompile Include="CShader.cpp" />
-    <ClCompile Include="CTest.cpp" />
     <ClCompile Include="CTimeMgr.cpp" />
     <ClCompile Include="CTransform.cpp" />
     <ClCompile Include="Engine.cpp" />

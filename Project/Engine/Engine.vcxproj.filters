@@ -96,7 +96,6 @@
     <ClInclude Include="CKeyMgr.h">
       <Filter>Source\03.Manager\03.KeyMgr</Filter>
     </ClInclude>
-    <ClInclude Include="CTest.h" />
     <ClInclude Include="struct.h">
       <Filter>Source\00.Header</Filter>
     </ClInclude>
@@ -149,6 +148,9 @@
     <ClInclude Include="ptr.h">
       <Filter>Source\03.Manager\05.ResourceMgr</Filter>
     </ClInclude>
+    <ClInclude Include="CTest.h">
+      <Filter>Source</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -172,7 +174,6 @@
     <ClCompile Include="CKeyMgr.cpp">
       <Filter>Source\03.Manager\03.KeyMgr</Filter>
     </ClCompile>
-    <ClCompile Include="CTest.cpp" />
     <ClCompile Include="CEntity.cpp">
       <Filter>Source</Filter>
     </ClCompile>

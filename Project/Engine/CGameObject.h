@@ -21,6 +21,7 @@ public:
     CMeshRender* GetMeshRender() { return (CMeshRender*)m_arrCom[(UINT)COMPONENT_TYPE::MESHRENDERING]; }
 
     void GameObjectRender();
+
     CLONE(CGameObject)
 
 public:

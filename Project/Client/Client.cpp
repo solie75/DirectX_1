@@ -1,26 +1,8 @@
 ﻿// Client.cpp : 애플리케이션에 대한 진입점을 정의합니다.
 //
 #include "pch.h"
-//#include "framework.h"
 #include "Client.h"
-//
-//// Engine Library
-//#include <Engine\global.h>
-//#include <Engine\CEngine.h>
-//
-//// Engine Library
-//#ifdef _DEBUG
-//#pragma comment(lib, "Engine//Engine_d.lib")
-//#else
-//#pragma comment(lib, "Engine//Engine.lib")
-//#endif
-//
-//// Static Library
-//#ifdef _DEBUG
-//#pragma comment(lib, "Script//Script_d.lib")
-//#else
-//#pragma comment(lib, "Script//Script.lib")
-//#endif
+#include <Script/CPlayerScript.h>
 
 // 전역 변수:
 HINSTANCE hInst;     // 현재 인스턴스입니다.
@@ -54,6 +36,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     {
         return 0;
     }
+    CEngine::GetInst()->GetGameObject()->AddComponent(new CPlayerScript);
 
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_CLIENT));
 
