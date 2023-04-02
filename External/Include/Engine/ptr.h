@@ -69,11 +69,11 @@ public:
 		}
 	}
 
-	//~Ptr()
-	//{
-	//	if (nullptr == m_Resource)
-	//	{
-	//		m_Resource->ReleaseResource();
-	//	}
-	//}
+	~Ptr()
+	{
+		if (nullptr == m_Resource)
+		{
+			m_Resource->ReleaseResource();
+		}
+	}
 };

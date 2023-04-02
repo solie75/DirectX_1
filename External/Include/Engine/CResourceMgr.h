@@ -4,6 +4,7 @@
 #include "ptr.h"
 
 class CMesh;
+class CGraphicsShader;
 
 class CResourceMgr :
     public CSingleton<CResourceMgr>
@@ -34,12 +35,24 @@ inline Ptr<T> CResourceMgr::FindRes(const wstring& _strKey)
     {
         map<wstring, Ptr<CResource>>::iterator iter = m_arrRes[(UINT)RESOURCE_TYPE::MESH].find(_strKey);
         // iterator 를 사용하여 주어진 Key 를 가지고 m_arrRes 상의 요소를 찾는다. 이때 찾는 게 없으면 end() 를 반환한다.
-        if (iter == m_arrRes[(UINT)RESOURCE_TYPE::MESH].end()) // 결국 찾지 못한 경우
+        if (iter == m_arrRes[(UINT)RESOURCE_TYPE::MESH].end())
+        // 결국 찾지 못한 경우
         {
             return nullptr;
         }
 
-        return (T*)iter->second.GetResource(); // 주어진 key에 해당하는 요소의 second인 Ptr<CReaource>를 반환한다.
+        return (T*)iter->second.GetResource();
+        // 주어진 key에 해당하는 요소의 second인 Ptr<CReaource>를 반환한다.
+    }
+
+    if (typeid(T).hash_code() == typeid(CGraphicsShader).hash_code())
+    {
+        map<wstring, Ptr<CResource>>::iterator iter = m_arrRes[(UINT)RESOURCE_TYPE::GRAPHICS_SHADER].find(_strKey);
+        if (iter == m_arrRes[(UINT)RESOURCE_TYPE::GRAPHICS_SHADER].end())
+        {
+            return nullptr;
+        }
+        return (T*)iter->second.GetResource();
     }
     
     return nullptr;

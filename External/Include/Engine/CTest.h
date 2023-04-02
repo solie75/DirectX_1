@@ -22,9 +22,8 @@ void TestInit()
 	g_Obj->GetMeshRender()->SetMesh(RectMesh.GetResource());
 
 	g_pShader = new CGraphicsShader;
-	g_pShader->CreateVertexShader(L"shader\\test.fx", "VS_TEST");
-	g_pShader->CreatePixelShader(L"shader\\test.fx", "PS_TEST");
-	g_Obj->GetMeshRender()->SetShader(g_pShader);
+	//Ptr<CGraphicsShader> TestShader = CResourceMgr::GetInst()->FindRes<CGraphicsShader>(L"TestShader");
+	//g_Obj->GetMeshRender()->SetShader(TestShader.GetResource());
 
 	CEngine::GetInst()->SetGameObject(g_Obj);
 	CEngine::GetInst()->SetGraphicsShader(g_pShader);
