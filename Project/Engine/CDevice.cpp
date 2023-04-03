@@ -148,7 +148,7 @@ int CDevice::CreateView()
 void CDevice::ClearTarget(float(&_color)[4])
 {
 	CONTEXT->ClearRenderTargetView(m_RTV.Get(), _color);
-	CONTEXT->ClearDepthStencilView(m_DSV.Get(), D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.f, 0);
+	CONTEXT->ClearDepthStencilView(m_DSV.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.f, 0);
 }
 
 //void CDevice::CreateConstBuffer()

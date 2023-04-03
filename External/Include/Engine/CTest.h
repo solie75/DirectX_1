@@ -18,12 +18,12 @@ void TestInit()
 	g_Obj->AddComponent(new CTransform);
 	//g_Obj->AddComponent(new CPlayerScript);
 
-	Ptr<CMesh> RectMesh = CResourceMgr::GetInst()->FindRes<CMesh>(L"RectMesh");
-	g_Obj->GetMeshRender()->SetMesh(RectMesh.GetResource());
+	Ptr<CMesh> TestMesh = CResourceMgr::GetInst()->FindRes<CMesh>(L"TestMesh");
+	g_Obj->GetMeshRender()->SetMesh(TestMesh.GetResource());
 
 	g_pShader = new CGraphicsShader;
-	//Ptr<CGraphicsShader> TestShader = CResourceMgr::GetInst()->FindRes<CGraphicsShader>(L"TestShader");
-	//g_Obj->GetMeshRender()->SetShader(TestShader.GetResource());
+	Ptr<CGraphicsShader> TestShader = CResourceMgr::GetInst()->FindRes<CGraphicsShader>(L"TestShader");
+	g_Obj->GetMeshRender()->SetShader(TestShader.GetResource());
 
 	CEngine::GetInst()->SetGameObject(g_Obj);
 	CEngine::GetInst()->SetGraphicsShader(g_pShader);

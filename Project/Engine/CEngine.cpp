@@ -63,13 +63,15 @@ void CEngine::CEngineTick()
 
 void CEngine::CEngineRender()
 {
+    CTimeMgr::GetInst()->TimeMgrRender();
+
     // ·»´õ ½ÃÀÛ
     //float arrColor[4] = { 0.4f, 0.4f, 0.4f, 1.f };
     float arrColor[4] = { 0.f, 0.f, 0.f, 1.f };
     CDevice::GetInst()->ClearTarget(arrColor);
     
     // Manager render
-    CTimeMgr::GetInst()->TimeMgrInit();
+
 
     TestRender();
 

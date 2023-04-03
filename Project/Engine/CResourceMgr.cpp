@@ -25,7 +25,7 @@ void CResourceMgr::CreateDefaultMesh()
 	Vtx v;
 
 	Ptr<CMesh> pMesh = nullptr;
-	// RectMesh 생성
+	// TestMesh 생성
 	// 0 -- 1
 	// |    |
 	// 3 -- 2
@@ -54,7 +54,7 @@ void CResourceMgr::CreateDefaultMesh()
 	vecIdx.push_back(2);
 
 	pMesh = new CMesh;
-	pMesh->SetKey(L"RectMesh");
+	pMesh->SetKey(L"TestMesh");
 
 	pMesh->CreateMesh(vecVtx.data(), (UINT)vecVtx.size(), vecIdx.data(), (UINT)vecIdx.size()); // vector의 data() 함수는 해당 벡터 형 변수의 주소를 반환한다.
 	m_arrRes[(UINT)RESOURCE_TYPE::MESH].insert(make_pair(pMesh->GetKey(), pMesh.GetResource()));
