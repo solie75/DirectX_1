@@ -12,7 +12,7 @@ public:
 	static T* GetInst();
 	static void Destroy();
 
-public:
+protected:
 	CSingleton() {}
 	virtual ~CSingleton() {}
 };
