@@ -26,36 +26,36 @@ void CLevelMgr::LevelMgrInit()
 {
 	m_pCurLevel = new CLevel;
 
-	CGameObject* g_Obj = nullptr;
-	CGraphicsShader* g_pShader = nullptr;
+	CGameObject* testGameObj = nullptr;
+	CGraphicsShader* testShader = nullptr;
 
-	g_Obj = new CGameObject;
-	g_Obj->AddComponent(new CMeshRender);
-	g_Obj->AddComponent(new CTransform);
-	//g_Obj->AddComponent(new CPlayerScript);
+	testGameObj = new CGameObject;
+	testGameObj->AddComponent(new CMeshRender);
+	testGameObj->AddComponent(new CTransform);
+	//testGameObj->AddComponent(new CPlayerScript);
 
-	Ptr<CMesh> TestMesh = CResourceMgr::GetInst()->FindRes<CMesh>(L"TestMesh");
-	g_Obj->GetMeshRender()->SetMesh(TestMesh.GetResource());
+	Ptr<CMesh> testMesh = CResourceMgr::GetInst()->FindRes<CMesh>(L"TestMesh");
+	testGameObj->GetMeshRender()->SetMesh(testMesh);
 
-	g_pShader = new CGraphicsShader;
-	Ptr<CGraphicsShader> TestShader = CResourceMgr::GetInst()->FindRes<CGraphicsShader>(L"TestShader");
-	g_Obj->GetMeshRender()->SetShader(TestShader.GetResource());
+	testShader = new CGraphicsShader;
+	Ptr<CGraphicsShader> testShader = CResourceMgr::GetInst()->FindRes<CGraphicsShader>(L"TestShader");
+	testGameObj->GetMeshRender()->SetShader(testShader);
 
-	m_pCurLevel->AddGameObject(g_Obj, 0);
+	m_pCurLevel->AddGameObject(testGameObj, 0);
 
 	// 두번쩨 인덱스 레이어에 오브젝트 추가
 
-	g_Obj = new CGameObject;
-	g_Obj->AddComponent(new CTransform);
-	g_Obj->AddComponent(new CMeshRender);
+	testGameObj = new CGameObject;
+	testGameObj->AddComponent(new CTransform);
+	testGameObj->AddComponent(new CMeshRender);
 
-	g_Obj->GetMeshRender()->SetMesh(TestMesh.GetResource());
-	g_Obj->GetMeshRender()->SetShader(TestShader.GetResource());
+	testGameObj->GetMeshRender()->SetMesh(testMesh);
+	testGameObj->GetMeshRender()->SetShader(testShader);
 
-	m_pCurLevel->AddGameObject(g_Obj, 1);
+	m_pCurLevel->AddGameObject(testGameObj, 1);
 
-	//CEngine::GetInst()->SetGameObject(g_Obj);
-	//CEngine::GetInst()->SetGraphicsShader(g_pShader);
+	//CEngine::GetInst()->SetGameObject(testGameObj);
+	//CEngine::GetInst()->SetGraphicsShader(testShader);
 }
 
 void CLevelMgr::LevelMgrTick()

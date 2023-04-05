@@ -5,6 +5,7 @@
 #include "CKeyMgr.h"
 #include "CTimeMgr.h"
 #include "CResourceMgr.h"
+#include "CLevelMgr.h"
 #include "CTest.h"
 
 
@@ -40,8 +41,7 @@ int CEngine::EngineInit(HWND _hWnd, UINT _iWidth, UINT _iHeight)
     CTimeMgr::GetInst()->TimeMgrInit();
     CKeyMgr::GetInst()->KeyMgrInit();
     CResourceMgr::GetInst()->ResourceMgrInit();
-
-    TestInit();
+    CLevelMgr::GetInst()->LevelMgrInit();
 
     return S_OK;
 }
@@ -57,8 +57,7 @@ void CEngine::CEngineTick()
     // Manager Tick
     CTimeMgr::GetInst()->TimeMgrTick();
     CKeyMgr::GetInst()->KeyMgrTick();
-
-    TestTick();
+    CLevelMgr::GetInst()->LevelMgrTick();
 }
 
 void CEngine::CEngineRender()
@@ -71,9 +70,7 @@ void CEngine::CEngineRender()
     CDevice::GetInst()->ClearTarget(arrColor);
     
     // Manager render
-
-
-    TestRender();
+    CLevelMgr::GetInst()->LevelMgrRender();
 
     // ·»´õ Á¾·á
     CDevice::GetInst()->Present();

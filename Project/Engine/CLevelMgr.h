@@ -7,7 +7,7 @@ class CLevelMgr
 	: public CSingleton<CLevelMgr>
 {
 
-SINGLE(CLevelMgr);
+SINGLE(CLevelMgr)
 private:
 	CLevel* m_pCurLevel;
 public:

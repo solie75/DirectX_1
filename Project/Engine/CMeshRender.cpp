@@ -25,6 +25,9 @@ void CMeshRender::BeginRenderingMesh()
 		return;
 	}
 
+	// Transform ¿¡ UpdateData ¿äÃ»
+	GetOwner()->GetTransform()->UpdateTransformData();
+
 	m_pShader->UpdateResourceData();
 	m_pMesh->RenderMesh();
 }

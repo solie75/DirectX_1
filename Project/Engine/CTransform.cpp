@@ -15,7 +15,7 @@ CTransform::~CTransform()
 
 void CTransform::ComponentFinaltick()
 {
-	UpdateTransformData();
+	//UpdateTransformData();
 }
 
 void CTransform::UpdateTransformData()

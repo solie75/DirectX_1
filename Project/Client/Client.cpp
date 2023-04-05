@@ -19,8 +19,11 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_ LPWSTR    lpCmdLine,
                      _In_ int       nCmdShow)
 {
-    UNREFERENCED_PARAMETER(hPrevInstance);
-    UNREFERENCED_PARAMETER(lpCmdLine);
+    //UNREFERENCED_PARAMETER(hPrevInstance);
+    //UNREFERENCED_PARAMETER(lpCmdLine);
+    // UNREFERENCED_PARAMETER 매크로, 인자값이나 로컬변수가 선언되지 않았을 때 컴파일러 경고를 발생시키지 않기 위해 사용하는 매크로이다.
+    // 프로그램을 작성할 경우 변수나 인자만 선언해 놓고 참조를 안할 경우 컴파일러는 C4100 오류를 발생시킨다.
+    // 이 warning 이 거슬리는 경우 UNREFERENCED_PARAMETER 를 해주면 warning 이 사라진다.
 
     // TODO: 여기에 코드를 입력합니다.
 

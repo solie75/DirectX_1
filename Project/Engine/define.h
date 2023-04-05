@@ -13,7 +13,7 @@
 
 #define MAX_LAYER 32
 
-#define SINGLE(type) private: type(); ~type(); friend class CSingleton<type>
+#define SINGLE(type) private: type(); ~type(); friend class CSingleton<type>;
 
 enum class COMPONENT_TYPE
 {

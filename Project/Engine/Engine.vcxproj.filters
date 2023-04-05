@@ -114,9 +114,6 @@
     <ClInclude Include="CEntity.h">
       <Filter>Source</Filter>
     </ClInclude>
-    <ClInclude Include="CComponent.h">
-      <Filter>Source\06. Component</Filter>
-    </ClInclude>
     <ClInclude Include="CGameObject.h">
       <Filter>Source\05. GameObject</Filter>
     </ClInclude>
@@ -165,6 +162,9 @@
     </ClInclude>
     <ClInclude Include="CLayer.h">
       <Filter>Source\04. Level</Filter>
+    </ClInclude>
+    <ClInclude Include="CComponent.h">
+      <Filter>Source\07. Resource\4. Shader</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
