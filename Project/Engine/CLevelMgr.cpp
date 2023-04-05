@@ -42,7 +42,9 @@ void CLevelMgr::LevelMgrInit()
 	g_Obj->GetMeshRender()->SetShader(TestShader.GetResource());
 
 	m_pCurLevel->AddGameObject(g_Obj, 0);
-	
+
+	// 두번쩨 인덱스 레이어에 오브젝트 추가
+
 	g_Obj = new CGameObject;
 	g_Obj->AddComponent(new CTransform);
 	g_Obj->AddComponent(new CMeshRender);
@@ -50,14 +52,19 @@ void CLevelMgr::LevelMgrInit()
 	g_Obj->GetMeshRender()->SetMesh(TestMesh.GetResource());
 	g_Obj->GetMeshRender()->SetShader(TestShader.GetResource());
 
+	m_pCurLevel->AddGameObject(g_Obj, 1);
+
 	//CEngine::GetInst()->SetGameObject(g_Obj);
 	//CEngine::GetInst()->SetGraphicsShader(g_pShader);
 }
 
 void CLevelMgr::LevelMgrTick()
 {
+	m_pCurLevel->LevelTick();
+	m_pCurLevel->LevelFinaltick();
 }
 
 void CLevelMgr::LevelMgrRender()
 {
+	m_pCurLevel->LevelRender();
 }
