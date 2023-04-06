@@ -164,7 +164,7 @@
       <Filter>Source\04. Level</Filter>
     </ClInclude>
     <ClInclude Include="CComponent.h">
-      <Filter>Source\07. Resource\4. Shader</Filter>
+      <Filter>Source\06. Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -242,5 +242,8 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Engine.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

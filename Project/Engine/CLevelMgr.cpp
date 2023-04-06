@@ -26,10 +26,10 @@ void CLevelMgr::LevelMgrInit()
 {
 	m_pCurLevel = new CLevel;
 
-	CGameObject* testGameObj = nullptr;
-	CGraphicsShader* testShader = nullptr;
+	//CGameObject* testGameObj = nullptr;
+	//CGraphicsShader* testShader = nullptr;
 
-	testGameObj = new CGameObject;
+	CGameObject* testGameObj = new CGameObject;
 	testGameObj->AddComponent(new CMeshRender);
 	testGameObj->AddComponent(new CTransform);
 	//testGameObj->AddComponent(new CPlayerScript);
@@ -37,7 +37,6 @@ void CLevelMgr::LevelMgrInit()
 	Ptr<CMesh> testMesh = CResourceMgr::GetInst()->FindRes<CMesh>(L"TestMesh");
 	testGameObj->GetMeshRender()->SetMesh(testMesh);
 
-	testShader = new CGraphicsShader;
 	Ptr<CGraphicsShader> testShader = CResourceMgr::GetInst()->FindRes<CGraphicsShader>(L"TestShader");
 	testGameObj->GetMeshRender()->SetShader(testShader);
 

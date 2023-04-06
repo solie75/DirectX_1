@@ -11,6 +11,10 @@
 
 #define CLONE(type) public : virtual type* Clone(){return new type(*this);}
 
+#define MAX_LAYER 32
+
+#define SINGLE(type) private: type(); ~type(); friend class CSingleton<type>;
+
 enum class COMPONENT_TYPE
 {
 	// update

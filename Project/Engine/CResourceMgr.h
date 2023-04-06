@@ -31,7 +31,7 @@ RESOURCE_TYPE GetResourceType()
     const type_info& mesh = typeid(CMesh);
     const type_info& graphicsShader = typeid(CGraphicsShader);
 
-    if (typeid(T).hash_code == mesh.hash_code())
+    if (typeid(T).hash_code() == mesh.hash_code())
     {
         return RESOURCE_TYPE::MESH;
     }

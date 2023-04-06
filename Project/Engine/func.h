@@ -17,7 +17,7 @@ void Safe_Del_Vec(vector<T*>& _vec)
 {
 	for (size_t i = 0; i < _vec.size(); ++i)
 	{
-		for (nullptr != _vec[i])
+		if (nullptr != _vec[i])
 		{
 			delete _vec[i];
 		}

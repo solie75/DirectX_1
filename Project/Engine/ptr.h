@@ -36,7 +36,7 @@ public:
 			m_Resource->ReleaseResource();
 		}
 
-		m_Resource = _Resource;
+		m_Resource = _Resource.m_Resource;
 
 		if (nullptr != m_Resource)
 		{
@@ -59,7 +59,7 @@ public:
 		return m_Resource == _Other.m_Resource;
 	}
 
-	bool operator == (const Ptr<T>& _Other)
+	bool operator != (const Ptr<T>& _Other)
 	{
 		return m_Resource != _Other.m_Resource;
 	}
@@ -81,7 +81,7 @@ public:
 	}
 	
 	Ptr(const Ptr<T>& _Resource)
-		:m_Resource(_Resource)
+		:m_Resource(_Resource.m_Resource)
 	{
 		if (nullptr != m_Resource)
 		{
