@@ -19,6 +19,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_ LPWSTR    lpCmdLine,
                      _In_ int       nCmdShow)
 {
+
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+    // _CrtSetBreakAlloc(270);
+
     //UNREFERENCED_PARAMETER(hPrevInstance);
     //UNREFERENCED_PARAMETER(lpCmdLine);
     // UNREFERENCED_PARAMETER 매크로, 인자값이나 로컬변수가 선언되지 않았을 때 컴파일러 경고를 발생시키지 않기 위해 사용하는 매크로이다.
