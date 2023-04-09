@@ -22,6 +22,11 @@ public:
 private:
     virtual void UpdateResourceData() override;
 
+private:
+    virtual int LoadResourceData(const wstring& _strFilePath) { return S_OK; }
+public:
+    virtual int SaveResourceData(const wstring& _strRelativePath) { return S_OK; }
+
 public:
     CMesh();
     ~CMesh();

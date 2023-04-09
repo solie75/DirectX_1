@@ -14,7 +14,7 @@ CTexture::~CTexture()
 {
 }
 
-int CTexture::ResourceLoad(const wstring& _strFilePath)
+int CTexture::LoadResourceData(const wstring& _strFilePath)
 {
     wchar_t szExt[50] = L"";
     _wsplitpath_s(_strFilePath.c_str(), nullptr, 0, nullptr, 0, nullptr, 0, szExt, 50);
@@ -63,13 +63,18 @@ int CTexture::ResourceLoad(const wstring& _strFilePath)
     return 0;
 }
 
-int CTexture::ResourceSave(const wstring& _strRelativePath)
+int CTexture::SaveResourceData(const wstring& _strRelativePath)
 {
-    return 0;
+    return S_OK;
 }
 
 void CTexture::UpdateResourceData()
 {
+}
+
+void CTexture::UpdateTextureData(int _iRegisterNum)
+{
+    CONTEXT->PSSetShaderResources(_iRegisterNum, 1, m_ShaderResourceView.GetAddressOf());
 }
 
 

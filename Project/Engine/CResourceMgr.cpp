@@ -16,6 +16,7 @@ void CResourceMgr::ResourceMgrInit()
 {
 	CreateDefaultMesh();
 	CreateDefaultGraphicsShader();
+	LoadDefaultTexture();
 }
 
 void CResourceMgr::CreateDefaultMesh()
@@ -54,10 +55,11 @@ void CResourceMgr::CreateDefaultMesh()
 	vecIdx.push_back(2);
 
 	pMesh = new CMesh;
-	pMesh->SetKey(L"TestMesh");
+	//pMesh->SetKey(L"TestMesh");
 
 	pMesh->CreateMesh(vecVtx.data(), (UINT)vecVtx.size(), vecIdx.data(), (UINT)vecIdx.size()); // vector의 data() 함수는 해당 벡터 형 변수의 주소를 반환한다.
-	m_arrRes[(UINT)RESOURCE_TYPE::MESH].insert(make_pair(pMesh->GetKey(), pMesh.GetResource()));
+	AddResource(L"RectMesh", pMesh); // <T> 를 따로 안지정해줘도 되는건가..?
+	//m_arrRes[(UINT)RESOURCE_TYPE::MESH].insert(make_pair(pMesh->GetKey(), pMesh.GetResource()));
 }
 
 void CResourceMgr::CreateDefaultGraphicsShader()
@@ -66,11 +68,18 @@ void CResourceMgr::CreateDefaultGraphicsShader()
 	
 	// TestShader
 	pShader = new CGraphicsShader;
-	pShader->SetKey(L"TestShader");
+	//pShader->SetKey(L"TestShader");
 	pShader->CreateVertexShader(L"shader\\test.fx", "VS_TEST");
 	pShader->CreatePixelShader(L"shader\\test.fx", "PS_TEST");
 
-	m_arrRes[(UINT)RESOURCE_TYPE::GRAPHICS_SHADER].insert(make_pair(pShader->GetKey(), pShader.GetResource()));
+	AddResource(L"TestShader", pShader);
+	//m_arrRes[(UINT)RESOURCE_TYPE::GRAPHICS_SHADER].insert(make_pair(pShader->GetKey(), pShader.GetResource()));
 }
 
+void CResourceMgr::LoadDefaultTexture()
+{
+	Ptr<CTexture> pTexture = LoadResource<CTexture>(L"PlayerTexture", L"texture\\Fighter.bmp");
 
+	// t0 파인딩
+	((CTexture*)pTexture.GetResource())->UpdateTextureData(0);
+}

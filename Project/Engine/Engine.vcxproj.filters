@@ -76,7 +76,7 @@
     <Filter Include="Source\00. Header">
       <UniqueIdentifier>{2cfed074-0f4e-420e-b5de-a71087785753}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\07. Resource\02. Texture">
+    <Filter Include="Source\07. Resource\2. Texture">
       <UniqueIdentifier>{5106b99b-d04b-4a9a-b410-cb3813e848b6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -170,7 +170,7 @@
       <Filter>Source\06. Component</Filter>
     </ClInclude>
     <ClInclude Include="CTexture.h">
-      <Filter>Source\07. Resource\02. Texture</Filter>
+      <Filter>Source\07. Resource\2. Texture</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -241,7 +241,7 @@
       <Filter>Source\04. Level</Filter>
     </ClCompile>
     <ClCompile Include="CTexture.cpp">
-      <Filter>Source\07. Resource\02. Texture</Filter>
+      <Filter>Source\07. Resource\2. Texture</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -30,10 +30,10 @@ public:
     virtual CResource* Clone() { return nullptr; assert(nullptr); }
 
 private:
-    virtual int ResourceLoad(const wstring& _strFilePath) = 0;
+    virtual int LoadResourceData(const wstring& _strFilePath) = 0;
 
 public:
-    virtual int ResourceSave(const wstring& _strFileReleativePath) = 0;
+    virtual int SaveResourceData(const wstring& _strFileReleativePath) = 0;
 
 public:
     CResource(RESOURCE_TYPE _type);

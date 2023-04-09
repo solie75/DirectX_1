@@ -7,6 +7,7 @@
 
 #include "CMesh.h"
 #include "CGraphicsShader.h"
+#include "CTexture.h"
 
 class CResourceMgr :
     public CSingleton<CResourceMgr>
@@ -21,6 +22,7 @@ public:
 private:
     void CreateDefaultMesh();
     void CreateDefaultGraphicsShader();
+    void LoadDefaultTexture();
 
 public:
     template<typename T>
@@ -30,7 +32,7 @@ public:
     void AddResource(const wstring& _strKey, Ptr<T>& _Resource);
 
     template<typename T>
-    Ptr<T> Load(const wstring& _strKey, const wstring& _strRelativePath);
+    Ptr<T> LoadResource(const wstring& _strKey, const wstring& _strRelativePath);
 };
 
 template<typename T>
@@ -38,6 +40,7 @@ RESOURCE_TYPE GetResourceType()
 {
     const type_info& mesh = typeid(CMesh);
     const type_info& graphicsShader = typeid(CGraphicsShader);
+    const type_info& texture = typeid(CTexture);
 
     if (typeid(T).hash_code() == mesh.hash_code())
     {
@@ -46,6 +49,10 @@ RESOURCE_TYPE GetResourceType()
     if (typeid(T).hash_code() == graphicsShader.hash_code())
     {
         return RESOURCE_TYPE::GRAPHICS_SHADER;
+    }
+    if (typeid(T).hash_code() == texture.hash_code())
+    {
+        return RESOURCE_TYPE::TEXTURE;
     }
 
     return RESOURCE_TYPE::END;
@@ -79,24 +86,28 @@ inline void CResourceMgr::AddResource(const wstring& _strKey, Ptr<T>& _Resource)
 }
 
 template<typename T>
-inline Ptr<T> CResourceMgr::Load(const wstring& _strKey, const wstring& _strRelativePath)
+inline Ptr<T> CResourceMgr::LoadResource(const wstring& _strKey, const wstring& _strRelativePath)
 {
     Ptr<CResource> pResource = FindRes<T>(_strKey).GetResource();
 
-    // 해당 경로에 이미 리소스가 존재한다면 반환
+    // 해당 경로에 리소스가 존재한다면 반환
     if (nullptr != pResource)
     {
         return (T*)pResource.GetResource();
     }
 
+    // 해당 경로에 리소스가 존재하지 않는다면 리소스를 생성한다.
     pResource = new T;
-    pResource->SetKey(_strKey);
+    pResource->SetKey(_strKey); 
     pResource->SetRelativePath(_strRelativePath);
     
     wstring strFilePath = CPathMgr::GetInst()->GetContentPath();
     strFilePath += _strRelativePath;
 
-    if (FAILED(pResource->Load(strFilePath))
+    if (FAILED(pResource->LoadResourceData(strFilePath))
+        // pResource가 어떤 유형의 리소스인지 모르는 상황에서 
+        // ResourceLoad 함수는 CMesh, CShader, CTexture 등 모두 가지고 있으니
+        // 인식을 하지 못하는 것이다.
     {
         assert(nullptr);
     }
@@ -108,5 +119,4 @@ inline Ptr<T> CResourceMgr::Load(const wstring& _strKey, const wstring& _strRela
 
     // 템플릿 함수 내에 다른 템플릿 함수를 사용하는 것
     // 자신의 함수를 다시 호출하는 것 이 템플릿에서 가능한가
-    // 심지어는 ; 인식도 되지 않는다.
 }

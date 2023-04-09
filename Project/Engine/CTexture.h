@@ -19,12 +19,14 @@ private:
     ScratchImage m_Image;
 
 private:
-    virtual int ResourceLoad(const wstring& _strFilePath) override;
+    virtual int LoadResourceData(const wstring& _strFilePath) override;
 public:
-    virtual int ResourceSave(const wstring& _strRelativePath) override;
+    virtual int SaveResourceData(const wstring& _strRelativePath) override;
 
 private:
     virtual void UpdateResourceData() override;
+public:
+    void UpdateTextureData(int _iRegisterNum);
 
 
 public:
