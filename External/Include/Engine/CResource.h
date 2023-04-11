@@ -29,6 +29,12 @@ public:
     // 리소스는 Clone 을 구현하지 않는다.
     virtual CResource* Clone() { return nullptr; assert(nullptr); }
 
+private:
+    virtual int LoadResourceData(const wstring& _strFilePath) = 0;
+
+public:
+    virtual int SaveResourceData(const wstring& _strFileReleativePath) = 0;
+
 public:
     CResource(RESOURCE_TYPE _type);
     virtual ~CResource();

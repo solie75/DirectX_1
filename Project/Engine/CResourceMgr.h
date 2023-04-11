@@ -78,7 +78,7 @@ template<typename T>
 inline void CResourceMgr::AddResource(const wstring& _strKey, Ptr<T>& _Resource)
 {
     // 저장하려는 키가 이미 존재하는 경우
-    assert(!(FindRes<T>(_strKey)));
+    assert(!FindRes<T>(_strKey).GetResource());
 
     RESOURCE_TYPE type = GetResourceType<T>();
     m_arrRes[(UINT)type].insert(make_pair(_strKey, _Resource.GetResource()));
@@ -104,7 +104,7 @@ inline Ptr<T> CResourceMgr::LoadResource(const wstring& _strKey, const wstring& 
     wstring strFilePath = CPathMgr::GetInst()->GetContentPath();
     strFilePath += _strRelativePath;
 
-    if (FAILED(pResource->LoadResourceData(strFilePath))
+    if (FAILED(pResource->LoadResourceData(strFilePath)))
         // pResource가 어떤 유형의 리소스인지 모르는 상황에서 
         // ResourceLoad 함수는 CMesh, CShader, CTexture 등 모두 가지고 있으니
         // 인식을 하지 못하는 것이다.

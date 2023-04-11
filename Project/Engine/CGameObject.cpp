@@ -59,6 +59,8 @@ void CGameObject::GameObjectRender()
 
 void CGameObject::AddComponent(CComponent* _Component)
 {
+	this;
+
 	_Component->m_pOwner = this;
 
 	if (COMPONENT_TYPE::SCRIPT == _Component->GetType())

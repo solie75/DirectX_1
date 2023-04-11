@@ -32,18 +32,22 @@ void CResourceMgr::CreateDefaultMesh()
 	// 3 -- 2
 	v.vPosition = Vec3(-0.5f, 0.5f, 0.5f);
 	v.vColor = Vec4(1.f, 0.f, 0.f, 1.f);
+	v.vUV = Vec2(0.f, 0.f);
 	vecVtx.push_back(v);
 
 	v.vPosition = Vec3(0.5f, 0.5f, 0.5f);
 	v.vColor = Vec4(0.f, 1.f, 0.f, 1.f);
+	v.vUV = Vec2(1.f, 0.f);
 	vecVtx.push_back(v);
 
 	v.vPosition = Vec3(0.5f, -0.5f, 0.5f);
 	v.vColor = Vec4(0.f, 0.f, 1.f, 1.f);
+	v.vUV = Vec2(1.f, 1.f);
 	vecVtx.push_back(v);
 
 	v.vPosition = Vec3(-0.5f, -0.5f, 0.5f);
 	v.vColor = Vec4(0.f, 0.f, 0.f, 1.f);
+	v.vUV = Vec2(0.f, 1.f);
 	vecVtx.push_back(v);
 
 	vecIdx.push_back(0);
@@ -58,7 +62,7 @@ void CResourceMgr::CreateDefaultMesh()
 	//pMesh->SetKey(L"TestMesh");
 
 	pMesh->CreateMesh(vecVtx.data(), (UINT)vecVtx.size(), vecIdx.data(), (UINT)vecIdx.size()); // vector의 data() 함수는 해당 벡터 형 변수의 주소를 반환한다.
-	AddResource(L"RectMesh", pMesh); // <T> 를 따로 안지정해줘도 되는건가..?
+	AddResource(L"TestMesh", pMesh); // <T> 를 따로 안지정해줘도 되는건가..?
 	//m_arrRes[(UINT)RESOURCE_TYPE::MESH].insert(make_pair(pMesh->GetKey(), pMesh.GetResource()));
 }
 

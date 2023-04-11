@@ -8,6 +8,12 @@ protected:
     // 접근하려 하므로 자식 개체에 한해서 접근을 허용하는 protect 로 m_ErrBlob 을 지정한다.
     ComPtr<ID3DBlob> m_ErrBlob;
 
+private:
+    virtual int LoadResourceData(const wstring& _strFilePath) { return S_OK; }
+public:
+    virtual int SaveResourceData(const wstring& _strRelativePath) { return S_OK; }
+
+
 public:
     CShader(RESOURCE_TYPE _eType);
     ~CShader();

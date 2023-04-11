@@ -52,9 +52,6 @@ void CLevelMgr::LevelMgrInit()
 	testGameObj->GetMeshRender()->SetShader(testShader);
 
 	m_pCurLevel->AddGameObject(testGameObj, 1);
-
-	//CEngine::GetInst()->SetGameObject(testGameObj);
-	//CEngine::GetInst()->SetGraphicsShader(testShader);
 }
 
 void CLevelMgr::LevelMgrTick()

@@ -2,7 +2,10 @@
 //
 #include "pch.h"
 #include "Client.h"
+//#include <Engine/CLevel.h>
+//#include <Engine/CLevelMgr.h>
 #include <Script/CPlayerScript.h>
+
 
 // 전역 변수:
 HINSTANCE hInst;     // 현재 인스턴스입니다.
@@ -41,9 +44,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     if (FAILED(CEngine::GetInst()->EngineInit(g_hWnd, 1600, 900)))
     {
+        //CLevelMgr::GetCurLevel()->AddComponent(new CPlayerScript);
         return 0;
     }
-    CEngine::GetInst()->GetGameObject()->AddComponent(new CPlayerScript);
+   
 
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_CLIENT));
 

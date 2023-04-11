@@ -31,16 +31,16 @@ void TestInit()
 
 void TestTick()
 {
-	CEngine::GetInst()->GetGameObject()->GameObjectTick();
-	CEngine::GetInst()->GetGameObject()->GameObjectFinaltick();
+	//CEngine::GetInst()->GetGameObject()->GameObjectTick();
+	//CEngine::GetInst()->GetGameObject()->GameObjectFinaltick();
 }
 
 void TestRender()
 {
-	CEngine::GetInst()->GetGameObject()->GameObjectRender();
+	//CEngine::GetInst()->GetGameObject()->GameObjectRender();
 }
 
 void TestRelease()
 {
-	delete CEngine::GetInst()->GetGameObject();
+	//delete CEngine::GetInst()->GetGameObject();
 }
