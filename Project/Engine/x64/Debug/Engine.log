@@ -12,12 +12,12 @@
   .\Project\Engine\CMesh.h
   .\Project\Engine\CMeshRender.h
   .\Project\Engine\CPathMgr.h
+  .\Project\Engine\CPlayScript.h
   .\Project\Engine\CResource.h
   .\Project\Engine\CResourceMgr.h
   .\Project\Engine\CScript.h
   .\Project\Engine\CShader.h
   .\Project\Engine\CSingleton.h
-  .\Project\Engine\CTest.h
   .\Project\Engine\CTexture.h
   .\Project\Engine\CTimeMgr.h
   .\Project\Engine\CTransform.h
@@ -51,5 +51,5 @@ FXC : warning X4717: Effects deprecated for D3DCompiler_47
   };
   
   pch.cpp
-  unity_29BUIQEQ1ZT4Z4E5.cpp
-  Engine.vcxproj -> D:\shinjoongeun\DirectX_1\External\Library\Engine\Engine_d.lib
+  unity_JMLDGML2ZENE3GHF.cpp
+  Engine.vcxproj -> C:\Users\shinjoongeun\Documents\GitHub\DirectX_1\External\Library\Engine\Engine_d.lib

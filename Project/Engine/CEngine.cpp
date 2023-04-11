@@ -6,7 +6,6 @@
 #include "CTimeMgr.h"
 #include "CResourceMgr.h"
 #include "CLevelMgr.h"
-#include "CTest.h"
 
 
 CEngine::CEngine()

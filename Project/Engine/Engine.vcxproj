@@ -188,12 +188,12 @@ call EngineCopy.bat</Command>
     <ClInclude Include="CMesh.h" />
     <ClInclude Include="CMeshRender.h" />
     <ClInclude Include="CPathMgr.h" />
+    <ClInclude Include="CPlayScript.h" />
     <ClInclude Include="CResource.h" />
     <ClInclude Include="CResourceMgr.h" />
     <ClInclude Include="CScript.h" />
     <ClInclude Include="CShader.h" />
     <ClInclude Include="CSingleton.h" />
-    <ClInclude Include="CTest.h" />
     <ClInclude Include="CTexture.h" />
     <ClInclude Include="CTimeMgr.h" />
     <ClInclude Include="CTransform.h" />
@@ -221,6 +221,7 @@ call EngineCopy.bat</Command>
     <ClCompile Include="CMesh.cpp" />
     <ClCompile Include="CMeshRender.cpp" />
     <ClCompile Include="CPathMgr.cpp" />
+    <ClCompile Include="CPlayScript.cpp" />
     <ClCompile Include="CResource.cpp" />
     <ClCompile Include="CResourceMgr.cpp" />
     <ClCompile Include="CScript.cpp" />

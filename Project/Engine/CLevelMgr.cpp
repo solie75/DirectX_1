@@ -6,6 +6,7 @@
 #include "CMeshRender.h"
 #include "ptr.h"
 #include "CResourceMgr.h"
+#include "CPlayScript.h"
 
 
 CLevelMgr::CLevelMgr()
@@ -32,7 +33,7 @@ void CLevelMgr::LevelMgrInit()
 	CGameObject* testGameObj = new CGameObject;
 	testGameObj->AddComponent(new CMeshRender);
 	testGameObj->AddComponent(new CTransform);
-	//testGameObj->AddComponent(new CPlayerScript);
+	testGameObj->AddComponent(new CPlayScript);
 
 	Ptr<CMesh> testMesh = CResourceMgr::GetInst()->FindRes<CMesh>(L"TestMesh");
 	testGameObj->GetMeshRender()->SetMesh(testMesh);

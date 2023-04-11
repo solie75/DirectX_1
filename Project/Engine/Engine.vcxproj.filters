@@ -79,6 +79,9 @@
     <Filter Include="Source\07. Resource\2. Texture">
       <UniqueIdentifier>{5106b99b-d04b-4a9a-b410-cb3813e848b6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\06. Component\Script\PlayScript">
+      <UniqueIdentifier>{1336fbbf-69f2-4d24-a7d3-52e2c02835d0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -154,9 +157,6 @@
     <ClInclude Include="ptr.h">
       <Filter>Source\03. Manager\05.ResourceMgr</Filter>
     </ClInclude>
-    <ClInclude Include="CTest.h">
-      <Filter>Source</Filter>
-    </ClInclude>
     <ClInclude Include="CLevelMgr.h">
       <Filter>Source\03. Manager\04.LevelMgr</Filter>
     </ClInclude>
@@ -171,6 +171,9 @@
     </ClInclude>
     <ClInclude Include="CTexture.h">
       <Filter>Source\07. Resource\2. Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayScript.h">
+      <Filter>Source\06. Component\Script\PlayScript</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -242,6 +245,9 @@
     </ClCompile>
     <ClCompile Include="CTexture.cpp">
       <Filter>Source\07. Resource\2. Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayScript.cpp">
+      <Filter>Source\06. Component\Script\PlayScript</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
