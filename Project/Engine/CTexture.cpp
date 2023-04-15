@@ -72,9 +72,29 @@ void CTexture::UpdateResourceData()
 {
 }
 
-void CTexture::UpdateTextureData(int _iRegisterNum)
+void CTexture::UpdateTextureData(int _iRegisterNum, int _PipelineStage)
 {
-    CONTEXT->PSSetShaderResources(_iRegisterNum, 1, m_ShaderResourceView.GetAddressOf());
+    if (PIPELINE_STAGE::PS_VERTEX & _PipelineStage)
+    {
+        CONTEXT->VSSetShaderResources(_iRegisterNum, 1, m_ShaderResourceView.GetAddressOf());
+    }
+    if (PIPELINE_STAGE::PS_HULL & _PipelineStage)
+    {
+        CONTEXT->HSSetShaderResources(_iRegisterNum, 1, m_ShaderResourceView.GetAddressOf());
+    }
+    if (PIPELINE_STAGE::PS_DOMAIN & _PipelineStage)
+    {
+        CONTEXT->DSSetShaderResources(_iRegisterNum, 1, m_ShaderResourceView.GetAddressOf());
+    }
+    if (PIPELINE_STAGE::PS_GEOMETRY & _PipelineStage)
+    {
+        CONTEXT->GSSetShaderResources(_iRegisterNum, 1, m_ShaderResourceView.GetAddressOf());
+    }
+    if (PIPELINE_STAGE::PS_PIXEL & _PipelineStage)
+    {
+        CONTEXT->PSSetShaderResources(_iRegisterNum, 1, m_ShaderResourceView.GetAddressOf());
+    }
+    
 }
 
 
