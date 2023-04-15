@@ -82,6 +82,9 @@
     <Filter Include="Source\06. Component\Script\PlayScript">
       <UniqueIdentifier>{1336fbbf-69f2-4d24-a7d3-52e2c02835d0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\07. Resource\3. Material">
+      <UniqueIdentifier>{29b472a7-c033-41b0-8990-ea1cd2ca556a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -175,6 +178,7 @@
     <ClInclude Include="CPlayScript.h">
       <Filter>Source\06. Component\Script\PlayScript</Filter>
     </ClInclude>
+    <ClInclude Include="CMaterial.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -249,6 +253,7 @@
     <ClCompile Include="CPlayScript.cpp">
       <Filter>Source\06. Component\Script\PlayScript</Filter>
     </ClCompile>
+    <ClCompile Include="CMaterial.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="test.fx">

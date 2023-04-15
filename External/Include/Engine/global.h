@@ -15,6 +15,12 @@ using std::string;
 
 #include <assert.h>
 
+// FileSystem
+#define _SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING
+#include <experimental/filesystem>
+using namespace std::experimental;
+using namespace std::experimental::filesystem;
+
 #include <wrl.h>
 using namespace Microsoft::WRL;
 
@@ -26,12 +32,14 @@ using namespace Microsoft::WRL;
 using namespace DirectX;
 using namespace DirectX::PackedVector;
 
-#pragma comment(lib, "d3d11.lib")
+#pragma comment(lib, "d3d11")
 #pragma comment(lib, "d3dcompiler")
 
 typedef XMFLOAT2 Vec2;
 typedef XMFLOAT3 Vec3;
 typedef XMFLOAT4 Vec4;
+
+typedef XMFLOAT4X4A Matrix;
 
 #include "define.h"
 #include "func.h"

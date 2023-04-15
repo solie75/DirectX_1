@@ -53,7 +53,7 @@ void CConstBuffer::SetConstBufferData(void* _vRelativePos, UINT _iSize)
 	D3D11_MAPPED_SUBRESOURCE tSubRes = {};
 	if (!FAILED(CONTEXT->Map(m_CB.Get(), 0, D3D11_MAP::D3D11_MAP_WRITE_DISCARD, 0, &tSubRes)))
 	{
-		memcpy(tSubRes.pData, _vRelativePos, _iSize);
+		memcpy(tSubRes.pData, _vRelativePos, buffersize);
 		CONTEXT->Unmap(m_CB.Get(), 0);
 	}
 }

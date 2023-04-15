@@ -55,3 +55,73 @@ enum class RESOURCE_TYPE
 
 	END,
 };
+
+enum TEXTURE_PARAM
+{
+	TEX_0,
+	TEX_1,
+	TEX_2,
+	TEX_3,
+	TEX_4,
+	TEX_5,
+	TEX_6,
+	TEX_7,
+
+	TEX_END,
+};
+
+enum SCALAR_PARAM
+{
+	INT_0,
+	INT_1,
+	INT_2,
+	INT_3,
+
+	FLOAT_0,
+	FLOAT_1,
+	FLOAT_2,
+	FLOAT_3,
+
+	VEC2_0,
+	VEC2_1,
+	VEC2_2,
+	VEC2_3,
+
+	VEC4_0,
+	VEC4_1,
+	VEC4_2,
+	VEC4_3,
+
+	MATRIX_0,
+	MATRIX_1,
+	MATRIX_2,
+	MATRIX_3,
+};
+
+enum class SCARAL_PARAM
+{
+	INT_0,
+	INT_1,
+	INT_2,
+	INT_3,
+
+	FLOAT_0,
+	FLOAT_1,
+	FLOAT_2,
+	FLOAT_3,
+
+	VEC2_0,
+	VEC2_1,
+	VEC2_2,
+	VEC2_3,
+
+	VEC4_0,
+	VEC4_1,
+	VEC4_2,
+	VEC4_3,
+
+	MATRIX_0,
+	MATRIX_1,
+	MATRIX_2,
+	MATRIX_3,
+};

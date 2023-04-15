@@ -9,6 +9,7 @@
   .\Project\Engine\CLayer.h
   .\Project\Engine\CLevel.h
   .\Project\Engine\CLevelMgr.h
+  .\Project\Engine\CMaterial.h
   .\Project\Engine\CMesh.h
   .\Project\Engine\CMeshRender.h
   .\Project\Engine\CPathMgr.h
@@ -27,7 +28,7 @@
   .\Project\Engine\ptr.h
   .\Project\Engine\resource.h
   .\Project\Engine\struct.h
-  29개 파일이 복사되었습니다.
+  30개 파일이 복사되었습니다.
   .\Project\Engine\test.fx
   1개 파일이 복사되었습니다.
 FXC : warning X4717: Effects deprecated for D3DCompiler_47
@@ -51,5 +52,5 @@ FXC : warning X4717: Effects deprecated for D3DCompiler_47
   };
   
   pch.cpp
-  unity_JMLDGML2ZENE3GHF.cpp
-  Engine.vcxproj -> C:\Users\shinjoongeun\Documents\GitHub\DirectX_1\External\Library\Engine\Engine_d.lib
+  unity_0CT0H4UPTUGS5AQR.cpp
+  Engine.vcxproj -> D:\shinjoongeun\DirectX_1\External\Library\Engine\Engine_d.lib
