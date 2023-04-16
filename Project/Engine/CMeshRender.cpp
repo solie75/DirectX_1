@@ -4,8 +4,6 @@
 
 CMeshRender::CMeshRender()
 	:CComponent(COMPONENT_TYPE::MESHRENDERING)
-	, m_pMesh(nullptr)
-	, m_pShader(nullptr)
 {
 }
 
@@ -20,7 +18,7 @@ void CMeshRender::ComponentFinaltick()
 
 void CMeshRender::BeginRenderingMesh()
 {
-	if (nullptr == m_pMesh || nullptr == m_pShader)
+	if (nullptr == m_pMesh || nullptr == m_pMaterial)
 	{
 		return;
 	}
@@ -28,7 +26,7 @@ void CMeshRender::BeginRenderingMesh()
 	// Transform ¿¡ UpdateData ¿äÃ»
 	GetOwner()->GetTransform()->UpdateTransformData();
 
-	m_pShader->UpdateResourceData();
+	m_pMaterial->UpdateResourceData();
 	m_pMesh->RenderMesh();
 }
 

@@ -178,7 +178,9 @@
     <ClInclude Include="CPlayScript.h">
       <Filter>Source\06. Component\Script\PlayScript</Filter>
     </ClInclude>
-    <ClInclude Include="CMaterial.h" />
+    <ClInclude Include="CMaterial.h">
+      <Filter>Source\07. Resource\3. Material</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -253,7 +255,9 @@
     <ClCompile Include="CPlayScript.cpp">
       <Filter>Source\06. Component\Script\PlayScript</Filter>
     </ClCompile>
-    <ClCompile Include="CMaterial.cpp" />
+    <ClCompile Include="CMaterial.cpp">
+      <Filter>Source\07. Resource\3. Material</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="test.fx">

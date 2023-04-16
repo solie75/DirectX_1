@@ -109,3 +109,11 @@ enum PIPELINE_STAGE
 
 	PS_ALL = PS_VERTEX | PS_HULL | PS_DOMAIN | PS_GEOMETRY | PS_PIXEL,
 };
+
+enum class CB_TYPE
+{
+	TRANSFORM, // b0
+	MATERIAL, // b1
+	
+	END,
+};

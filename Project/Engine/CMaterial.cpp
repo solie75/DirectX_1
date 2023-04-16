@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "CMaterial.h"
+#include "CDevice.h"
+#include "CConstBuffer.h"
 
 CMaterial::CMaterial()
 	: CResource(RESOURCE_TYPE::MATERIAL)
@@ -75,8 +77,12 @@ void CMaterial::UpdateResourceData()
 		}
 		else
 		{
-			m_arrTexture[i]->UpdateTextureData(i,);
+			m_arrTexture[i]->UpdateTextureData(i,PIPELINE_STAGE::PS_PIXEL);
 		}
 	}
 
+	// Constant Update
+	CConstBuffer* pMaterialBuffer = CDevice::GetInst()->GetConstBuffer(CB_TYPE::MATERIAL);
+	pMaterialBuffer->SetConstBufferData(&m_MaterialConst);
+	pMaterialBuffer->UpdateConstBufferData();
 }

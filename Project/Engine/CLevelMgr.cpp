@@ -27,30 +27,32 @@ void CLevelMgr::LevelMgrInit()
 {
 	m_pCurLevel = new CLevel;
 
-	//CGameObject* testGameObj = nullptr;
-	//CGraphicsShader* testShader = nullptr;
-
 	CGameObject* testGameObj = new CGameObject;
 	testGameObj->AddComponent(new CMeshRender);
 	testGameObj->AddComponent(new CTransform);
 	testGameObj->AddComponent(new CPlayScript);
 
 	Ptr<CMesh> testMesh = CResourceMgr::GetInst()->FindRes<CMesh>(L"TestMesh");
-	testGameObj->GetMeshRender()->SetMesh(testMesh);
+	Ptr<CTexture> PlayerTex = CResourceMgr::GetInst()->FindRes<CTexture>(L"PlayerTexure");
+	Ptr<CMaterial> testMaterial = CResourceMgr::GetInst()->FindRes<CMaterial>(L"TestMaterial");
 
-	Ptr<CGraphicsShader> testShader = CResourceMgr::GetInst()->FindRes<CGraphicsShader>(L"TestShader");
-	testGameObj->GetMeshRender()->SetShader(testShader);
+	testMaterial->SetTextureParam(TEX_0, PlayerTex);
+
+	testGameObj->GetMeshRender()->SetMesh(testMesh);
+	testGameObj->GetMeshRender()->SetMaterial(testMaterial);
+
 
 	m_pCurLevel->AddGameObject(testGameObj, 0);
 
 	// 두번쩨 인덱스 레이어에 오브젝트 추가
 
 	testGameObj = new CGameObject;
+	testGameObj->SetName(L"Test Object");
 	testGameObj->AddComponent(new CTransform);
 	testGameObj->AddComponent(new CMeshRender);
 
 	testGameObj->GetMeshRender()->SetMesh(testMesh);
-	testGameObj->GetMeshRender()->SetShader(testShader);
+	testGameObj->GetMeshRender()->SetMaterial(testMaterial);
 
 	m_pCurLevel->AddGameObject(testGameObj, 1);
 }
