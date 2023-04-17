@@ -7,7 +7,7 @@
 CDevice::CDevice()
 	: m_hWnd(nullptr)
 	, m_ViewPort{}
-	, m_ConstBuffer(nullptr)
+	, m_ConstBuffer{}
 {
 }
 
@@ -66,8 +66,8 @@ int CDevice::DeviceInit(HWND _hWnd, UINT _renderWidth, UINT _renderHeight)
 	m_Context->RSSetViewports(1, &m_ViewPort);
 
 	// 상수 버퍼 생성
-	m_ConstBuffer = new CConstBuffer(0);
-	m_ConstBuffer->CreateConstBuffer(sizeof(Vec4), 1);
+	//m_ConstBuffer = new CConstBuffer(0);
+	//CreateConstBuffer(sizeof(Vec4), 1);
 
 	return S_OK;
 }

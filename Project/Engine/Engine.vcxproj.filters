@@ -13,9 +13,6 @@
     <Filter Include="Source\08. ShaderCode">
       <UniqueIdentifier>{7bfe41ae-c4c4-475d-a46b-13ee71916cf9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\09.Module">
-      <UniqueIdentifier>{16f351cc-c8da-4ce7-9b30-12684ef10b7b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source\07. Resource">
       <UniqueIdentifier>{9b49151c-8b1c-42f4-8c6a-b4cd1846b6b8}</UniqueIdentifier>
     </Filter>
@@ -85,6 +82,9 @@
     <Filter Include="Source\07. Resource\3. Material">
       <UniqueIdentifier>{29b472a7-c033-41b0-8990-ea1cd2ca556a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\09. Module">
+      <UniqueIdentifier>{16f351cc-c8da-4ce7-9b30-12684ef10b7b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -118,7 +118,7 @@
       <Filter>Source\00. Header</Filter>
     </ClInclude>
     <ClInclude Include="CSingleton.h">
-      <Filter>Source\09.Module</Filter>
+      <Filter>Source\09. Module</Filter>
     </ClInclude>
     <ClInclude Include="CEntity.h">
       <Filter>Source</Filter>

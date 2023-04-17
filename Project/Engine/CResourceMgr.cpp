@@ -80,10 +80,14 @@ void CResourceMgr::CreateDefaultGraphicsShader()
 	//m_arrRes[(UINT)RESOURCE_TYPE::GRAPHICS_SHADER].insert(make_pair(pShader->GetKey(), pShader.GetResource()));
 }
 
+void CResourceMgr::CreateDefaultMaterial()
+{
+}
+
 void CResourceMgr::LoadDefaultTexture()
 {
 	Ptr<CTexture> pTexture = LoadResource<CTexture>(L"PlayerTexture", L"texture\\Fighter.bmp");
 
 	// t0 ÆÄÀÎµù
-	((CTexture*)pTexture.GetResource())->UpdateTextureData(0);
+	//((CTexture*)pTexture.GetResource())->UpdateTextureData(0);
 }

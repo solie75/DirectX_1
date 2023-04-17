@@ -26,9 +26,7 @@ public:
 private:
     virtual void UpdateResourceData() override;
 public:
-    void UpdateTextureData(int _iRegisterNum);
-
-
+    void UpdateTextureData(int _iRegisterNum, int _PipelineStage);
 public:
     CTexture();
     ~CTexture();

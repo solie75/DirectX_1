@@ -12,7 +12,7 @@ typedef tVertex Vtx;
 struct tMaterialConst
 {
 	int arrInt[4];
-	float arrfloat[4];
+	float arrFloat[4];
 	Vec2 arrV2[4];
 	Vec4 arrV4[4];
 	Matrix arrMatrix[4];

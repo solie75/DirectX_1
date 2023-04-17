@@ -52,5 +52,6 @@ FXC : warning X4717: Effects deprecated for D3DCompiler_47
   };
   
   pch.cpp
-  unity_0CT0H4UPTUGS5AQR.cpp
-  Engine.vcxproj -> D:\shinjoongeun\DirectX_1\External\Library\Engine\Engine_d.lib
+  unity_C23OOV932FZJKCFP.cpp
+C:\Users\shinjoongeun\Documents\GitHub\DirectX_1\Project\Engine\CTransform.cpp(24,70): error C2660: 'CDevice::GetConstBuffer': 함수는 0개의 인수를 사용하지 않습니다.
+C:\Users\shinjoongeun\Documents\GitHub\DirectX_1\Project\Engine\CDevice.h(31,19): message : 'CDevice::GetConstBuffer' 선언을 참조하십시오.
