@@ -36,22 +36,54 @@ FXC : warning X4717: Effects deprecated for D3DCompiler_47
   //
   // FX Version: fx_5_0
   //
-  // 1 local buffer(s)
+  // 2 local buffer(s)
   //
   cbuffer TRANSFORM : register(b0)
   {
       float4  vPlayerPos;                 // Offset:    0, size:   16
   }
   
+  cbuffer MATERIAL : register(b1)
+  {
+      int     g_int_0;                    // Offset:    0, size:    4
+      int     g_int_1;                    // Offset:    4, size:    4
+      int     g_int_2;                    // Offset:    8, size:    4
+      int     g_int_3;                    // Offset:   12, size:    4
+      float   g_float_0;                  // Offset:   16, size:    4
+      float   g_float_1;                  // Offset:   20, size:    4
+      float   g_float_2;                  // Offset:   24, size:    4
+      float   g_float_3;                  // Offset:   28, size:    4
+      float2  g_vec2_0;                   // Offset:   32, size:    8
+      float2  g_vec2_1;                   // Offset:   40, size:    8
+      float2  g_vec2_2;                   // Offset:   48, size:    8
+      float2  g_vec2_3;                   // Offset:   56, size:    8
+      float4  g_vec4_0;                   // Offset:   64, size:   16
+      float4  g_vec4_1;                   // Offset:   80, size:   16
+      float4  g_vec4_2;                   // Offset:   96, size:   16
+      float4  g_vec4_3;                   // Offset:  112, size:   16
+      float4x4 g_mat_0;                   // Offset:  128, size:   64
+      float4x4 g_mat_1;                   // Offset:  192, size:   64
+      float4x4 g_mat_2;                   // Offset:  256, size:   64
+      float4x4 g_mat_3;                   // Offset:  320, size:   64
+  }
+  
   //
-  // 2 local object(s)
+  // 10 local object(s)
   //
-  Texture2D g_Tex_0;
+  Texture2D g_tex_0;
+  Texture2D g_tex_1;
+  Texture2D g_tex_2;
+  Texture2D g_tex_3;
+  Texture2D g_tex_4;
+  Texture2D g_tex_5;
+  Texture2D g_tex_6;
+  Texture2D g_tex_7;
   SamplerState g_sam_0
   {
   };
+  SamplerState g_sam_1
+  {
+  };
   
-  pch.cpp
-  unity_C23OOV932FZJKCFP.cpp
-C:\Users\shinjoongeun\Documents\GitHub\DirectX_1\Project\Engine\CTransform.cpp(24,70): error C2660: 'CDevice::GetConstBuffer': 함수는 0개의 인수를 사용하지 않습니다.
-C:\Users\shinjoongeun\Documents\GitHub\DirectX_1\Project\Engine\CDevice.h(31,19): message : 'CDevice::GetConstBuffer' 선언을 참조하십시오.
+  unity_0CT0H4UPTUGS5AQR.cpp
+  Engine.vcxproj -> D:\shinjoongeun\DirectX_1\External\Library\Engine\Engine_d.lib

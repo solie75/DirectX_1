@@ -8,6 +8,7 @@
 #include "CMesh.h"
 #include "CGraphicsShader.h"
 #include "CTexture.h"
+#include "CMaterial.h"
 
 class CResourceMgr :
     public CSingleton<CResourceMgr>
@@ -22,7 +23,9 @@ public:
 private:
     void CreateDefaultMesh();
     void CreateDefaultGraphicsShader();
+    void CreateDefaultMaterial();
     void LoadDefaultTexture();
+    
 
 public:
     template<typename T>
@@ -41,6 +44,7 @@ RESOURCE_TYPE GetResourceType()
     const type_info& mesh = typeid(CMesh);
     const type_info& graphicsShader = typeid(CGraphicsShader);
     const type_info& texture = typeid(CTexture);
+    const type_info& material = typeid(CMaterial);
 
     if (typeid(T).hash_code() == mesh.hash_code())
     {
@@ -54,6 +58,11 @@ RESOURCE_TYPE GetResourceType()
     {
         return RESOURCE_TYPE::TEXTURE;
     }
+    if (typeid(T).hash_code() == material.hash_code())
+    {
+        return RESOURCE_TYPE::MATERIAL;
+    }
+
 
     return RESOURCE_TYPE::END;
 }

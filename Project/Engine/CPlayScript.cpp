@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "CPlayScript.h"
+#include "CMeshRender.h"
 
 
 CPlayScript::CPlayScript()
@@ -47,5 +48,16 @@ void CPlayScript::ComponentTick()
 	}
 
 	GetOwner()->GetTransform()->SetRelativePos(vCurPos);
+
+	if (KEY_TAB(KEY::_1))
+	{
+		int a = 0;
+		GetOwner()->GetMeshRender()->GetMaterial()->SetScalarParam(INT_0, &a);
+	}
+	else if (KEY_TAB(KEY::_2))
+	{
+		int a = 1;
+		GetOwner()->GetMeshRender()->GetMaterial()->SetScalarParam(INT_0, &a);
+	}
 }
 

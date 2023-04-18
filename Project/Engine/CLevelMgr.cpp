@@ -34,7 +34,7 @@ void CLevelMgr::LevelMgrInit()
 	testGameObj->AddComponent(new CPlayScript);
 
 	Ptr<CMesh> testMesh = CResourceMgr::GetInst()->FindRes<CMesh>(L"TestMesh");
-	Ptr<CTexture> playerTexture = CResourceMgr::GetInst()->FindRes<CTexture>(L"PlayerTexure");
+	Ptr<CTexture> playerTexture = CResourceMgr::GetInst()->FindRes<CTexture>(L"PlayerTexture");
 	Ptr<CMaterial> testMaterial = CResourceMgr::GetInst()->FindRes<CMaterial>(L"TestMaterial");
 
 	testMaterial->SetTextureParam(TEX_0, playerTexture);

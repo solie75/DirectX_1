@@ -16,6 +16,7 @@ void CResourceMgr::ResourceMgrInit()
 {
 	CreateDefaultMesh();
 	CreateDefaultGraphicsShader();
+	CreateDefaultMaterial();
 	LoadDefaultTexture();
 }
 
@@ -82,6 +83,12 @@ void CResourceMgr::CreateDefaultGraphicsShader()
 
 void CResourceMgr::CreateDefaultMaterial()
 {
+	Ptr<CMaterial> pMaterial = nullptr;
+
+	// Test Material
+	pMaterial = new CMaterial;
+	pMaterial->SetShader(FindRes<CGraphicsShader>(L"TestShader"));
+	AddResource(L"TestMaterial",pMaterial);
 }
 
 void CResourceMgr::LoadDefaultTexture()

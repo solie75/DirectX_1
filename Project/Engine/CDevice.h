@@ -20,14 +20,18 @@ private:
 
     D3D11_VIEWPORT m_ViewPort;
 
-    CConstBuffer* m_ConstBuffer[(UINT)CB_TYPE::END];
+    CConstBuffer* m_arrConstBuffer[(UINT)CB_TYPE::END];
+
+    // Sampler
+    ComPtr<ID3D11SamplerState> m_arrSamplerState[2];
 
 public:
     int DeviceInit(HWND _hWnd, UINT _renderWidth, UINT _renderHeight);
     void ClearTarget(float(&_color)[4]);
     void Present() { m_SwapChain->Present(0, 0); }
-    void CreateConstBuffer();
-    CConstBuffer* GetConstBuffer(CB_TYPE _Type) { return m_ConstBuffer[(UINT)_Type]; }
+    void CreateConstBufferArray();
+    HRESULT CreateSampler();
+    CConstBuffer* GetConstBuffer(CB_TYPE _Type) { return m_arrConstBuffer[(UINT)_Type]; }
 
 public:
     ID3D11Device* GetCDevice() { return m_Device.Get(); }
