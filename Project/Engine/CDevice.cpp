@@ -158,7 +158,7 @@ void CDevice::ClearTarget(float(&_color)[4])
 void CDevice::CreateConstBufferArray()
 {
 	m_arrConstBuffer[(UINT)CB_TYPE::TRANSFORM] = new CConstBuffer((UINT)CB_TYPE::TRANSFORM);
-	m_arrConstBuffer[(UINT)CB_TYPE::TRANSFORM]->CreateConstBuffer(sizeof(Vec4), 1);
+	m_arrConstBuffer[(UINT)CB_TYPE::TRANSFORM]->CreateConstBuffer(sizeof(tTransform), 1);
 
 	m_arrConstBuffer[(UINT)CB_TYPE::MATERIAL] = new CConstBuffer((UINT)CB_TYPE::MATERIAL);
 	m_arrConstBuffer[(UINT)CB_TYPE::MATERIAL]->CreateConstBuffer(sizeof(tMaterialConst), 1);
