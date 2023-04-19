@@ -68,6 +68,8 @@ void CMaterial::UpdateResourceData()
 		return;
 	}
 
+	m_pShader->UpdateResourceData();
+
 	// Texture update
 	for (UINT i = 0; i < TEX_END; ++i)
 	{
