@@ -95,6 +95,25 @@ void CResourceMgr::CreateDefaultMesh()
 		v.vUV = Vec2(v.vPosition.x + 0.5f, -v.vPosition.y + 0.5f);
 		vecVtx.push_back(v);
 	}
+
+	// 인덱스 설정
+	for (UINT i = 0; i < Slice-1; ++i)
+	{
+		vecIdx.push_back(0);
+		vecIdx.push_back(i + 2);
+		vecIdx.push_back(i + 1);
+	}
+
+	// 마지막 삼각형
+	vecIdx.push_back(0);
+	vecIdx.push_back(1);
+	vecIdx.push_back(Slice);
+
+	pMesh = new CMesh;
+	pMesh->CreateMesh(vecVtx.data(), (UINT)vecVtx.size(), vecIdx.data(), (UINT)vecIdx.size());
+	AddResource(L"CircleMesh", pMesh);
+	vecVtx.clear();
+	vecIdx.clear();
 }
 
 void CResourceMgr::CreateDefaultGraphicsShader()

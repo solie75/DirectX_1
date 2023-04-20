@@ -9,6 +9,8 @@ private:
     Vec3 m_vRelativeScale;
     Vec3 m_vRelativeRot;
 
+    Matrix m_matWorld; // 크기, 회전, 이동 정보를 합친 월드 행렬
+
 public:
     void SetRelativePos(Vec3 _vPos) { m_vRelativePos = _vPos; }
     void SetRelativeScale(Vec3 _vScale) { m_vRelativeScale = _vScale; }

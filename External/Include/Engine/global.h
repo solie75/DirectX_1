@@ -39,7 +39,7 @@ typedef XMFLOAT2 Vec2;
 typedef XMFLOAT3 Vec3;
 typedef XMFLOAT4 Vec4;
 
-typedef XMFLOAT4X4A Matrix;
+typedef XMMATRIX Matrix;
 
 #include "define.h"
 #include "func.h"

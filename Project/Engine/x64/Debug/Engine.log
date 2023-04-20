@@ -40,7 +40,9 @@ FXC : warning X4717: Effects deprecated for D3DCompiler_47
   //
   cbuffer TRANSFORM : register(b0)
   {
-      float4  vPlayerPos;                 // Offset:    0, size:   16
+      float4x4 g_matWorld;                // Offset:    0, size:   64
+      float4x4 g_matView;                 // Offset:   64, size:   64
+      float4x4 g_matProjection;           // Offset:  128, size:   64
   }
   
   cbuffer MATERIAL : register(b1)
@@ -86,5 +88,5 @@ FXC : warning X4717: Effects deprecated for D3DCompiler_47
   };
   
   pch.cpp
-  unity_C23OOV932FZJKCFP.cpp
-  Engine.vcxproj -> C:\Users\shinjoongeun\Documents\GitHub\DirectX_1\External\Library\Engine\Engine_d.lib
+  unity_0CT0H4UPTUGS5AQR.cpp
+  Engine.vcxproj -> D:\shinjoongeun\DirectX_1\External\Library\Engine\Engine_d.lib

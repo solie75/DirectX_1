@@ -33,7 +33,7 @@ void CLevelMgr::LevelMgrInit()
 	testGameObj->AddComponent(new CTransform);
 	testGameObj->AddComponent(new CPlayScript);
 
-	Ptr<CMesh> testMesh = CResourceMgr::GetInst()->FindRes<CMesh>(L"TestMesh");
+	Ptr<CMesh> testMesh = CResourceMgr::GetInst()->FindRes<CMesh>(L"CircleMesh");
 	Ptr<CTexture> playerTexture = CResourceMgr::GetInst()->FindRes<CTexture>(L"PlayerTexture");
 	Ptr<CMaterial> testMaterial = CResourceMgr::GetInst()->FindRes<CMaterial>(L"TestMaterial");
 
@@ -50,6 +50,7 @@ void CLevelMgr::LevelMgrInit()
 	testGameObj->AddComponent(new CTransform);
 	testGameObj->AddComponent(new CMeshRender);
 
+	testMesh = CResourceMgr::GetInst()->FindRes<CMesh>(L"RectMesh");
 	testGameObj->GetMeshRender()->SetMesh(testMesh);
 	testGameObj->GetMeshRender()->SetMaterial(testMaterial);
 

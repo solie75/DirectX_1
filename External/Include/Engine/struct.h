@@ -17,3 +17,10 @@ struct tMaterialConst
 	Vec4 arrV4[4];
 	Matrix arrMatrix[4];
 };
+
+struct tTransform
+{
+	Matrix matWorld;
+	Matrix matView;
+	Matrix matProjection;
+};

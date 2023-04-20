@@ -59,5 +59,12 @@ void CPlayScript::ComponentTick()
 		int a = 1;
 		GetOwner()->GetMeshRender()->GetMaterial()->SetScalarParam(INT_0, &a);
 	}
+
+	if (KEY_TAB(KEY::A))
+	{
+		Vec3 vRot = GetOwner()->GetTransform()->GetRelativeRot();
+		vRot.z += DT * XM_PI;
+		GetOwner()->GetTransform()->SetRelativeRot(vRot);
+	}
 }
 

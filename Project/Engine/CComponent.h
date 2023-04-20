@@ -5,6 +5,8 @@
 //class CTransform;
 //class CMeshRender;
 
+#define GET_OTHER_COMPONENT(Type) Type* Type() {return m_pOwner->Type();}
+
 class CComponent :
     public CEntity
 {
@@ -22,9 +24,8 @@ public:
     virtual void ComponentFinaltick() = 0;
     virtual CComponent* Clone() = 0;
 
-//public:
-//    CTransform* GetTransform() { return m_pOwner->GetTransform(); }
-//    CMeshRender* GetMeshRender() { return m_pOwner->GetMeshRender(); }
+public:
+
 
 public:
     CComponent(COMPONENT_TYPE _Type);
