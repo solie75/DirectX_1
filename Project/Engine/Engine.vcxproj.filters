@@ -88,6 +88,9 @@
     <Filter Include="Source\06. Component\3. Camera">
       <UniqueIdentifier>{2da2452c-26f4-42e3-a0da-445591778f14}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\06. Component\Script\CameraMoveScript">
+      <UniqueIdentifier>{02550768-438e-4b39-98b0-9b02bd9ede0e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -184,7 +187,12 @@
     <ClInclude Include="CMaterial.h">
       <Filter>Source\07. Resource\3. Material</Filter>
     </ClInclude>
-    <ClInclude Include="CCamera.h" />
+    <ClInclude Include="CCameraMoveScript.h">
+      <Filter>Source\06. Component\Script\CameraMoveScript</Filter>
+    </ClInclude>
+    <ClInclude Include="CCamera.h">
+      <Filter>Source\06. Component\3. Camera</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -262,7 +270,12 @@
     <ClCompile Include="CMaterial.cpp">
       <Filter>Source\07. Resource\3. Material</Filter>
     </ClCompile>
-    <ClCompile Include="CCamera.cpp" />
+    <ClCompile Include="CCameraMoveScript.cpp">
+      <Filter>Source\06. Component\Script\CameraMoveScript</Filter>
+    </ClCompile>
+    <ClCompile Include="CCamera.cpp">
+      <Filter>Source\06. Component\3. Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="test.fx">

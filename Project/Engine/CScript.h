@@ -3,8 +3,8 @@
 
 //#include "CLevelMgr.h"
 //#include "CResourceMgr.h"
-//#include "CTimeMgr.h"
-//#include "CKeyMgr.h"
+#include "CTimeMgr.h"
+#include "CKeyMgr.h"
 
 #include "CGameObject.h"
 #include "CTransform.h"

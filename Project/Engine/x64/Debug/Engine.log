@@ -1,4 +1,6 @@
-﻿  .\Project\Engine\CComponent.h
+﻿  .\Project\Engine\CCamera.h
+  .\Project\Engine\CCameraMoveScript.h
+  .\Project\Engine\CComponent.h
   .\Project\Engine\CConstBuffer.h
   .\Project\Engine\CDevice.h
   .\Project\Engine\CEngine.h
@@ -28,7 +30,7 @@
   .\Project\Engine\ptr.h
   .\Project\Engine\resource.h
   .\Project\Engine\struct.h
-  30개 파일이 복사되었습니다.
+  32개 파일이 복사되었습니다.
   .\Project\Engine\test.fx
   1개 파일이 복사되었습니다.
 FXC : warning X4717: Effects deprecated for D3DCompiler_47
@@ -88,5 +90,5 @@ FXC : warning X4717: Effects deprecated for D3DCompiler_47
   };
   
   pch.cpp
-  unity_0CT0H4UPTUGS5AQR.cpp
-  Engine.vcxproj -> D:\shinjoongeun\DirectX_1\External\Library\Engine\Engine_d.lib
+  unity_DEFA4XJJUUCLJW7O.cpp
+D:\shinjoongeun\DirectX_1\Project\Engine\CLevelMgr.cpp(40,2): error C2146: 구문 오류: ';'이(가) 'CGameObject' 식별자 앞에 없습니다.

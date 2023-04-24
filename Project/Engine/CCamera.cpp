@@ -40,7 +40,7 @@ void CCamera::ComponentFinaltick()
 	m_matProjection = XMMatrixOrthographicLH(vResolution.x, vResolution.y, 1.f, 10000.f);
 
 	// 원근 투영
-	m_matProjection = XMMatrixPerspectiveFovLH(XM_PI / 2.f, m_fAspectRatio, 1.f, 10000.f);
+	//m_matProjection = XMMatrixPerspectiveFovLH(XM_PI / 2.f, m_fAspectRatio, 1.f, 10000.f);
 
 
 	// 행렬 업데이트

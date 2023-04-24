@@ -2,10 +2,12 @@
 #include "CLevelMgr.h"
 #include "CLevel.h"
 #include "CGameObject.h"
+#include "CCamera.h"
 #include "CTransform.h"
 #include "CMeshRender.h"
 #include "ptr.h"
 #include "CResourceMgr.h"
+#include "CCameraMoveScript.h"
 #include "CPlayScript.h"
 
 
@@ -26,6 +28,17 @@ CLevelMgr::~CLevelMgr()
 void CLevelMgr::LevelMgrInit()
 {
 	m_pCurLevel = new CLevel;
+
+	// Main Camera Object 생성
+	CGameObject* pMainCam = new CGameObject;
+	pMainCam->SetName(L"MainCamera");
+
+	pMainCam->AddComponent(new CTransform);
+	pMainCam->AddComponent(new CCamera);
+	pMainCam->AddComponent(new CCameraMoveScript);
+
+	m_pCurLevel->AddGameObject(pMainCam, 0);
+	
 
 	// 첫번쩨 인덱스 레이어에 오브젝트 추가
 	CGameObject* testGameObj = new CGameObject;

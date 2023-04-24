@@ -8,7 +8,7 @@ class CDevice
 private:
     HWND m_hWnd;
 
-    Vec2 m_vRenderResolution;
+    Vec2 m_vRenderResolution; // ∑ª¥ı ≈∏∞Ÿ¿« «ÿªÛµµ
 
     ComPtr<ID3D11Device> m_Device;
     ComPtr<ID3D11DeviceContext> m_Context;
@@ -32,6 +32,7 @@ public:
     void CreateConstBufferArray();
     HRESULT CreateSampler();
     CConstBuffer* GetConstBuffer(CB_TYPE _Type) { return m_arrConstBuffer[(UINT)_Type]; }
+    Vec2 GetRenderResolution() { return m_vRenderResolution; }
 
 public:
     ID3D11Device* GetCDevice() { return m_Device.Get(); }
