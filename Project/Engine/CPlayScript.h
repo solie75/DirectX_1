@@ -8,6 +8,9 @@
 class CPlayScript :
     public CScript
 {
+private:
+    float m_fSpeed;
+public:
     virtual void ComponentTick() override;
 
     CLONE(CPlayScript);

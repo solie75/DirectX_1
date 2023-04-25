@@ -52,6 +52,9 @@ void CLevelMgr::LevelMgrInit()
 
 	testMaterial->SetTextureParam(TEX_0, playerTexture);
 
+	testGameObj->GetTransform()->SetRelativePos(Vec3(0.f, 0.f, 50.f));
+	testGameObj->GetTransform()->SetRelativeScale(Vec3(100.f, 100.f, 1.f));
+
 	testGameObj->GetMeshRender()->SetMesh(testMesh);
 	testGameObj->GetMeshRender()->SetMaterial(testMaterial);
 

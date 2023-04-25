@@ -4,6 +4,7 @@
 
 
 CPlayScript::CPlayScript()
+	: m_fSpeed(100.f)
 {
 }
 
@@ -19,7 +20,7 @@ void CPlayScript::ComponentTick()
 	{
 		for (int i = 0; i < 4; ++i)
 		{
-			vCurPos.y += DT * 1.f;
+			vCurPos.y += DT * m_fSpeed;
 		}
 	}
 
@@ -27,7 +28,7 @@ void CPlayScript::ComponentTick()
 	{
 		for (int i = 0; i < 4; ++i)
 		{
-			vCurPos.y -= DT * 1.f;
+			vCurPos.y -= DT * m_fSpeed;
 		}
 	}
 
@@ -35,7 +36,7 @@ void CPlayScript::ComponentTick()
 	{
 		for (int i = 0; i < 4; ++i)
 		{
-			vCurPos.x -= DT * 1.f;
+			vCurPos.x -= DT * m_fSpeed;
 		}
 	}
 
@@ -43,11 +44,9 @@ void CPlayScript::ComponentTick()
 	{
 		for (int i = 0; i < 4; ++i)
 		{
-			vCurPos.x += DT * 1.f;
+			vCurPos.x += DT * m_fSpeed;
 		}
 	}
-
-	GetOwner()->GetTransform()->SetRelativePos(vCurPos);
 
 	if (KEY_TAB(KEY::_1))
 	{
@@ -60,11 +59,15 @@ void CPlayScript::ComponentTick()
 		GetOwner()->GetMeshRender()->GetMaterial()->SetScalarParam(INT_0, &a);
 	}
 
-	if (KEY_TAB(KEY::A))
+	if (KEY_TAB(KEY::Z))
 	{
 		Vec3 vRot = GetOwner()->GetTransform()->GetRelativeRot();
-		vRot.z += DT * XM_PI;
+		vRot.y += DT * XM_PI;
 		GetOwner()->GetTransform()->SetRelativeRot(vRot);
+		vCurPos.z += m_fSpeed * DT;
 	}
+
+	GetOwner()->GetTransform()->SetRelativePos(vCurPos);
+
 }
 
