@@ -89,6 +89,9 @@ FXC : warning X4717: Effects deprecated for D3DCompiler_47
   {
   };
   
-  pch.cpp
-  unity_DEFA4XJJUUCLJW7O.cpp
-D:\shinjoongeun\DirectX_1\Project\Engine\CLevelMgr.cpp(40,2): error C2146: 구문 오류: ';'이(가) 'CGameObject' 식별자 앞에 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(560,5): error MSB6003: 지정한 작업 실행 파일 "CL.exe"을(를) 실행할 수 없습니다. System.IO.IOException: 'C:\USERS\SHINJOONGEUN\DOCUMENTS\GITHUB\DIRECTX_1\PROJECT\ENGINE\X64\DEBUG\ENGINE_D.PCH' 파일은 다른 프로세스에서 사용 중이므로 프로세스에서 액세스할 수 없습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(560,5): error MSB6003:    위치: System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(560,5): error MSB6003:    위치: System.IO.FileInfo.Delete()
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(560,5): error MSB6003:    위치: Microsoft.Build.CPPTasks.TrackedVCToolTask.DeleteFiles(ITaskItem[] filesToDelete)
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(560,5): error MSB6003:    위치: Microsoft.Build.CPPTasks.CL.ComputeOutOfDateSources()
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(560,5): error MSB6003:    위치: Microsoft.Build.Utilities.ToolTask.Execute()

@@ -6,6 +6,11 @@
 CTransform::CTransform()
 	: CComponent(COMPONENT_TYPE::TRANSFORM)
 	, m_vRelativeScale(Vec3(1.f, 1.f, 1.f))
+	, m_vRelativeDirection{
+		Vec3(1.f, 0.f, 0.f),
+		Vec3(0.f, 1.f, 0.f),
+		Vec3(0.f, 0.f, 1.f)
+	}
 {
 }
 
@@ -27,6 +32,17 @@ void CTransform::ComponentFinaltick()
 	Matrix matTranslation = XMMatrixTranslation(m_vRelativePos.x, m_vRelativePos.y, m_vRelativePos.z);
 
 	m_matWorld = matScale * matRot * matTranslation;
+
+	Vec3 vDefaultDirection[3] = {
+	  Vec3(1.f, 0.f, 0.f)
+	, Vec3(0.f, 1.f, 0.f)
+	, Vec3(0.f, 0.f, 1.f)
+	};
+
+	for (int i = 0; i < 3; ++i)
+	{
+		m_vRelativeDirection[i] = XMVector3TransformNormal((FXMVECTOR)vDefaultDirection[i], matRot);
+	}
 
 }
 

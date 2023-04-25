@@ -1,8 +1,8 @@
 ﻿// Client.cpp : 애플리케이션에 대한 진입점을 정의합니다.
-//
+
 #include "pch.h"
 #include "Client.h"
-#include <Script/CPlayerScript.h>
+//#include <Script/CPlayerScript.h>
 
 
 // 전역 변수:
@@ -81,7 +81,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 //
 ATOM MyRegisterClass(HINSTANCE hInstance)
 {
-    WNDCLASSEXW wcex;
+    WNDCLASSEXW wcex = {};
 
     wcex.cbSize = sizeof(WNDCLASSEX);
 

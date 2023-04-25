@@ -118,3 +118,8 @@ enum class CB_TYPE
 	END,
 };
 
+enum class PROJECTION_TYPE
+{
+	ORTHOGRAPHIC,
+	PERSPECTIVE,
+};

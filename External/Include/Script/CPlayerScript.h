@@ -1,8 +1,9 @@
 #pragma once
 
-#include <Engine/CScript.h>
 #include <Engine/CKeyMgr.h>
 #include <Engine/CTimeMgr.h>
+#include <Engine/CComponent.h>
+#include <Engine/CScript.h>
 
 class CPlayerScript :
     public CScript

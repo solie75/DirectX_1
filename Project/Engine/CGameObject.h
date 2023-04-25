@@ -5,6 +5,7 @@ class CComponent;
 class CTransform;         
 class CMeshRender;
 class CScript;
+class CCamera;
 
 class CGameObject :
     public CEntity
@@ -19,6 +20,7 @@ public:
     // GameObject 가 가지고 있는 특정 컴포넌트를 반환한다.
     CTransform* GetTransform() { return (CTransform*)m_arrCom[(UINT)COMPONENT_TYPE::TRANSFORM]; }
     CMeshRender* GetMeshRender() { return (CMeshRender*)m_arrCom[(UINT)COMPONENT_TYPE::MESHRENDERING]; }
+    CCamera* GetCamera() { return (CCamera*)m_arrCom[(UINT)COMPONENT_TYPE::CAMERA]; }
 
     void GameObjectRender();
 

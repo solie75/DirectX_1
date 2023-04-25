@@ -8,6 +8,12 @@
 #pragma comment(lib, "DirectXTex//DirectXTex")
 #endif
 
+//#ifdef _DEBUG
+//#pragma comment(lib, "DirectXTex_debug")
+//#else
+//#pragma comment(lib, "DirectXTex")
+//#endif
+
 class CTexture :
     public CResource
 {

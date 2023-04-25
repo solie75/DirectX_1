@@ -276,6 +276,9 @@
     <ClCompile Include="CCamera.cpp">
       <Filter>Source\06. Component\3. Camera</Filter>
     </ClCompile>
+    <ClCompile Include="extern.cpp">
+      <Filter>Source\00. Header</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="test.fx">
