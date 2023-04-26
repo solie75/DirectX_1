@@ -49,7 +49,7 @@ void CMesh::CreateMesh(void* _VtxSysMem, UINT _iVtxCount, void* _IdxSysMem, UINT
 	m_tVBDesc.Usage = D3D11_USAGE_DEFAULT;
 	m_tVBDesc.ByteWidth = sizeof(Vtx) * m_VtxCount;
 
-	D3D11_SUBRESOURCE_DATA tSub;
+	D3D11_SUBRESOURCE_DATA tSub = {};
 	tSub.pSysMem = _VtxSysMem; // 왜 기껏 memcpy 로 데이터 옮겨 놓고 인자를 저장하는 것인가?
 	if (FAILED(DEVICE->CreateBuffer(&m_tVBDesc, &tSub, m_VB.GetAddressOf())))
 	{

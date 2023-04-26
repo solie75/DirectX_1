@@ -123,3 +123,10 @@ enum class PROJECTION_TYPE
 	ORTHOGRAPHIC,
 	PERSPECTIVE,
 };
+
+enum class DIRECTION_TYPE
+{
+	X,
+	Y,
+	Z
+};

@@ -30,7 +30,13 @@ void CCamera::ComponentFinaltick()
 	// 카메라가 바라보는 방향을 Z 축과 평행하게 만드는 회전 행렬을 적용시킨다.
 	Matrix matViewRot = XMMatrixIdentity();
 
-	// 회전 적용 코드...
+	Vec3 vX = GetOwner()->GetTransform()->GetRelativeDirection(DIRECTION_TYPE::X);
+	Vec3 vY = GetOwner()->GetTransform()->GetRelativeDirection(DIRECTION_TYPE::Y);
+	Vec3 vZ = GetOwner()->GetTransform()->GetRelativeDirection(DIRECTION_TYPE::Z);
+
+	matViewRot._11 = vX.x; matViewRot._12 = vY.x; matViewRot._13 = vZ.x;
+	matViewRot._21 = vX.y; matViewRot._22 = vY.y; matViewRot._23 = vZ.y;
+	matViewRot._31 = vX.z; matViewRot._32 = vY.z; matVijewRot._33 = vZ.z;
 
 	m_matView = matViewTrans * matViewRot;
 

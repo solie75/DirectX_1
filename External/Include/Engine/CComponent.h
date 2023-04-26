@@ -2,8 +2,8 @@
 #include "CEntity.h"
 #include "CGameObject.h"
 
-//class CTransform;
-//class CMeshRender;
+class CTransform;
+class CMeshRender;
 
 #define GET_OTHER_COMPONENT(Type) Type* Type() {return m_pOwner->Type();}
 
@@ -25,7 +25,9 @@ public:
     virtual CComponent* Clone() = 0;
 
 public:
-
+    //CTransform* GetTransform() { return m_pOwner->GetTransform(); }
+    //CMeshRender* GetMeshRender() { return m_pOwner->GetMeshRender(); }
+    //CCamera* GetCamera() { return m_pOwner->GetCamera(); }
 
 public:
     CComponent(COMPONENT_TYPE _Type);

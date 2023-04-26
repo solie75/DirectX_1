@@ -26,6 +26,8 @@ public:
     Vec3 GetRelativeScale() { return m_vRelativeScale; }
     Vec3 GetRelativeRot() { return m_vRelativeRot; }
 
+    Vec3 GetRelativeDirection(DIRECTION_TYPE _type) { return m_vRelativeDirection[(UINT)_type]; }
+
 public:
     virtual void ComponentFinaltick() override;
     void UpdateTransformData();

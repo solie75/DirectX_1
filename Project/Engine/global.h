@@ -36,11 +36,12 @@ using namespace DirectX::PackedVector;
 #pragma comment(lib, "d3dcompiler")
 
 
-typedef XMVECTOR Vec2;
+//typedef XMVECTOR Vec2;
+typedef XMFLOAT2 Vec2;
 //typedef XMFLOAT3 Vec3;
 typedef XMFLOAT4 Vec4;
 
-typedef XMMATRIX Matrix;
+//typedef XMMATRIX Matrix;
 
 #include "define.h"
 #include "func.h"
