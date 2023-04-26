@@ -41,7 +41,7 @@ void CTransform::ComponentFinaltick()
 
 	for (int i = 0; i < 3; ++i)
 	{
-		m_vRelativeDirection[i] = XMVector3TransformNormal((FXMVECTOR)vDefaultDirection[i], matRot);
+		m_vRelativeDirection[i] = XMVector3TransformNormal(vDefaultDirection[i], matRot);
 	}
 
 }
