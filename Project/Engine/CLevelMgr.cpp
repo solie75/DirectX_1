@@ -37,6 +37,8 @@ void CLevelMgr::LevelMgrInit()
 	pMainCam->AddComponent(new CCamera);
 	pMainCam->AddComponent(new CCameraMoveScript);
 
+	pMainCam->GetCamera()->SetProjectionType(PROJECTION_TYPE::PERSPECTIVE);
+
 	m_pCurLevel->AddGameObject(pMainCam, 0);
 	
 
@@ -52,7 +54,7 @@ void CLevelMgr::LevelMgrInit()
 
 	testMaterial->SetTextureParam(TEX_0, playerTexture);
 
-	testGameObj->GetTransform()->SetRelativePos(Vec3(0.f, 0.f, 50.f));
+	testGameObj->GetTransform()->SetRelativePos(Vec3(0.f, 0.f, 500.f));
 	testGameObj->GetTransform()->SetRelativeScale(Vec3(100.f, 100.f, 1.f));
 
 	testGameObj->GetMeshRender()->SetMesh(testMesh);
@@ -66,9 +68,14 @@ void CLevelMgr::LevelMgrInit()
 	testGameObj->AddComponent(new CTransform);
 	testGameObj->AddComponent(new CMeshRender);
 
-	testMesh = CResourceMgr::GetInst()->FindRes<CMesh>(L"RectMesh");
-	testGameObj->GetMeshRender()->SetMesh(testMesh);
-	testGameObj->GetMeshRender()->SetMaterial(testMaterial);
+	testMaterial->SetTextureParam(TEX_0, playerTexture);
+
+	testGameObj->GetTransform()->SetRelativePos(Vec3(0.f, 0.f, 200.f));
+	testGameObj->GetTransform()->SetRelativeScale(Vec3(100.f, 100.f, 1.f));
+
+
+	testGameObj->GetMeshRender()->SetMesh(CResourceMgr::GetInst()->FindRes<CMesh>(L"RectMesh"));
+	testGameObj->GetMeshRender()->SetMaterial(CResourceMgr::GetInst()->FindRes<CMaterial>(L"TestMaterial"));
 
 	m_pCurLevel->AddGameObject(testGameObj, 1);
 }

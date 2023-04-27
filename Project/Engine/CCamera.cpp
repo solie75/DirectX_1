@@ -36,7 +36,7 @@ void CCamera::ComponentFinaltick()
 
 	matViewRot._11 = vX.x; matViewRot._12 = vY.x; matViewRot._13 = vZ.x;
 	matViewRot._21 = vX.y; matViewRot._22 = vY.y; matViewRot._23 = vZ.y;
-	matViewRot._31 = vX.z; matViewRot._32 = vY.z; matVijewRot._33 = vZ.z;
+	matViewRot._31 = vX.z; matViewRot._32 = vY.z; matViewRot._33 = vZ.z;
 
 	m_matView = matViewTrans * matViewRot;
 

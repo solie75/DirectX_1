@@ -11,6 +11,10 @@ public:
 
     CLONE(CCameraMoveScript);
 
+private:
+    void Camera2DMove();
+    void Camera3DMove();
+
 public:
     CCameraMoveScript();
     ~CCameraMoveScript();

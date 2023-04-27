@@ -14,6 +14,33 @@ struct Vec3 : public XMFLOAT3
 	operator XMVECTOR() const { return XMLoadFloat3(this); }
 	// Vec3 구조체에 XMVECTOR 가 대입 될 때 사용될 연산자.
 	Vec3 operator=  (const XMVECTOR& v) { x = v.m128_f32[0]; y = v.m128_f32[1]; z = v.m128_f32[2]; return *this; }
+
+	Vec3 operator += (const Vec3& v)
+	{
+		XMVECTOR v1 = XMLoadFloat3(this);
+		XMVECTOR v2 = XMLoadFloat3(&v);
+		XMVECTOR x = XMVectorMultiply(v1, v2);
+		XMStoreFloat3(this, x);
+		return *this;
+	}
+
+	Vec3 operator -= (const Vec3& v)
+	{
+		XMVECTOR v1 = XMLoadFloat3(this);
+		XMVECTOR v2 = XMLoadFloat3(&v);
+		XMVECTOR x = XMVectorSubtract(v1, v2);
+		XMStoreFloat3(this, x);
+		return *this;
+	}
+
+	Vec3 operator += (const Vec3& v)
+	{
+		XMVECTOR v1 = XMLoadFloat3(this);
+		XMVECTOR v2 = XMLoadFloat3(&v);
+		XMVECTOR x = XMVectorAdd(v1, v2);
+		XMStoreFloat3(this, x);
+		return *this;
+	}
 };
 
 struct Matrix : public XMFLOAT4X4
